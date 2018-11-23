@@ -4,7 +4,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавляем производителя(бренд)
+                Добавление товара
             </h1>
         </section>
 
@@ -17,7 +17,7 @@
         <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Добавляем производителя</h3>
+                    <h3 class="box-title">Добавляем товар</h3>
                     @include('admin.errors')
                 </div>
                 <div class="box-body">
@@ -30,26 +30,14 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Лицевая картинка</label>
                             <input type="file" id="exampleInputFile" name="image">
-
-                            <p class="help-block">Какое-нибудь уведомление о форматах..</p>
                         </div>
-                        {{--<div class="form-group">--}}
-                            {{--<label>Категория</label>--}}
-                            {{--{{ Form::select('category_id',--}}
-                            {{--$categories,--}}
-                              {{--null,--}}
-                              {{--['class' => 'form-control select2']) }}--}}
-                        {{--</div>--}}
-                        {{--<div class="form-group">--}}
-                            {{--<label>Теги</label>{{ Form::select('tags[]',--}}
-                            {{--$tags,--}}
-                              {{--null,--}}
-                              {{--['class' => 'form-control select2','multiple'=>'multiple','data-placeholder'=>'Выберите теги']) }}--}}
-
-                        {{--</div>--}}
-                        <!-- Date -->
-
-
+                        <div class="form-group">
+                            <label>Изготовитель</label>
+                            {{ Form::select('brand_id',
+                            $brands,
+                              null,
+                              ['class' => 'form-control select2']) }}
+                        </div>
                         <!-- checkbox -->
                         <div class="form-group">
                             <label>
@@ -62,15 +50,13 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Описание</label>
+                            <label for="exampleInputEmail1">Описание(с сохранение форматирования)</label>
                             <textarea name="description" id="" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Полный текст</label>
-                            <textarea name="about" id="" cols="30" rows="10" class="form-control"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Изображение</label>
+                        <input type="file" id="exampleInputFile" name="image">
                     </div>
                 </div>
                 <!-- /.box-body -->

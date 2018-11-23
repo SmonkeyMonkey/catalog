@@ -5,9 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
-use App\Product;
+use App\Brand;
 
-class Brand extends Model
+class Product extends Model
 {
     use Sluggable;
     public function sluggable()
@@ -18,22 +18,22 @@ class Brand extends Model
             ]
         ];
     }
-    public function products(){
-        return $this->hasMany(Product::class);
+    public function brands(){
+        return $this->belongsTo(Brand::class);
     }
-    protected $fillable=['title','description','about'];
+    protected $fillable=['title','description','price','specifications','thickness','layer','weight','size','group','classification','substances','bacteria_fungus'];
     public function uploadImage($image){
         if ($image==null){return;}
         $this->removeImage();
         $filename=str_random(10).'.'.$image->extension();
-        $image->storeAs('uploads/brands',$filename);
+        $image->storeAs('uploads/products',$filename);
         $this->image=$filename;
         $this->save();
     }
     public function removeImage(){
         if($this->image != null)
         {
-            Storage::delete('uploads/brands' . $this->image);
+            Storage::delete('uploads/products/' . $this->image);
         }
     }
     public function remove()
@@ -42,23 +42,9 @@ class Brand extends Model
         $this->delete();
     }
     public function getImage(){
-    if($this->image == null){
-        return '/img/no-img.jpg';
-    }
-    return '/uploads/brands/'.$this->image;
-    }
-    public function setDraft(){
-        $this->is_published=0;
-        $this->save();
-    }
-    public function setPublic(){
-        $this->is_published=1;
-        $this->save();
-    }
-    public function toggleStatus($value){
-        if($value==null){
-            return $this->setDraft();
+        if($this->image == null){
+            return '/img/no-img.jpg';
         }
-        return $this->setPublic();
+        return '/uploads/products/'.$this->image;
     }
 }

@@ -18,8 +18,10 @@
             @endif
             <!-- Default box -->
             <div class="box">
-                {!! Form::open(['route' => 'category.store']) !!}
-
+                {{ Form::open([
+        'route' => 'category.store',
+        'files' => true,
+        ]) }}
 
                 <div class="box-header with-border">
                     <h3 class="box-title">Добавляем категорию</h3>
@@ -31,6 +33,17 @@
                             <label for="exampleInputEmail1">Название</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="title">
                         </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputFile">Изображение</label>
+                    <input type="file" id="exampleInputFile" name="image">
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Описание</label>
+                        <textarea name="description" id="" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
                     </div>
                 </div>
                 <!-- /.box-body -->

@@ -40,6 +40,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Название</th>
+                        <th>Описание</th>
+                        <th>Изображение</th>
                         <th>Действия</th>
                     </tr>
                     </thead>
@@ -48,6 +50,10 @@
                         <tr>
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->title }}</td>
+                            <td>{{ $category->description }}</td>
+                            <td>
+                            <img src="{{ $category->getImage() }}" alt="" width="100">
+                            </td>
                             <td>
                                 <a href="{{ route('category.edit',$category->id) }}" class="fa fa-pencil"></a>
                                 {{ Form::open(['route' => ['category.destroy',$category->id],'method' => 'delete']) }}

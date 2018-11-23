@@ -35,7 +35,7 @@ class BrandsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Brand $brand)
+    public function store(Request $request)
     {
         $this->validate($request,[
             'title'         => 'required|min:2',
@@ -43,22 +43,11 @@ class BrandsController extends Controller
             'about'         => 'required|min:5',
             'image'         => 'nullable|image'
         ]);
-        $brand->create($request->all());
-        $brand->uploadImage($request->get('image'));
-        return redirect()->route('brand.index')->with('massage','Бренд успешно добавлен');
+        $brand=Brand::create($request->all());
+        $brand->uploadImage($request->file('image'));
+        $brand->toggleStatus($request->get('is_published'));
+        return redirect()->route('brand.index')->with('create','Бренд успешно добавлен');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -67,7 +56,8 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand=Brand::find($id);
+        return view('admin.brands.edit',compact('brand'));
     }
 
     /**
@@ -79,7 +69,17 @@ class BrandsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title'         => 'required|min:2',
+            'description'   => 'required|min:3',
+            'about'         => 'required|min:5',
+            'image'         => 'nullable|image'
+        ]);
+        $brand=Brand::findOrFail($id);
+        $brand->update($request->all());
+        $brand->uploadImage($request->file('image'));
+        $brand->toggleStatus($request->get('is_published'));
+        return redirect()->route('brand.index')->with('update','Производитель успешно обновлен');
     }
 
     /**
@@ -90,6 +90,7 @@ class BrandsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Brand::findOrFail($id)->remove();
+        return redirect()->route('brand.index')->with('delete','Производитель успешно удален');
     }
 }

@@ -43,30 +43,30 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($brands as $brand)
-                            <tr>
-                                <td>{{ $brand->id }}</td>
-                                <td>{{ $brand->title }}</td>
-                                <td>{{ $brand->description }}</td>
-                                <td>{{ $brand->about }}</td>
+                        {{--@foreach($brands as $brand)--}}
+                            {{--<tr>--}}
+                                {{--<td>{{ $brand->id }}</td>--}}
+                                {{--<td>{{ $brand->title }}</td>--}}
+                                {{--<td>{{ $brand->description }}</td>--}}
+                                {{--<td>{{ $brand->about }}</td>--}}
                                 {{--<td>{{$brand->getCategoryTitle()}}</td>--}}
                                 {{--<td>{{$brand->getTagsTitle()}}</td>--}}
 
-                                <td>
-                                    <img src="{{ $brand->getImage() }}" alt="" width="100">
-                                </td>
-                                <td>
-                                    <a href="{{ route('brand.edit', $brand->id) }}" class="fa fa-pencil"></a>
+                                {{--<td>--}}
+                                    {{--<img src="{{ $brand->getImage() }}" alt="" width="100">--}}
+                                {{--</td>--}}
+                                {{--<td>--}}
+                                    {{--<a href="{{ route('brand.edit', $brand->id) }}" class="fa fa-pencil"></a>--}}
 
-                                    {{ Form::open(['route'=>['brand.destroy', $brand->id], 'method'=>'delete']) }}
-                                    <button onclick="return confirm('Вы уверены что хотите удалить данный бренд ?')" type="submit" class="delete">
-                                        <i class="fa fa-remove"></i>
-                                    </button>
+                                    {{--{{ Form::open(['route'=>['brand.destroy', $brand->id], 'method'=>'delete']) }}--}}
+                                    {{--<button onclick="return confirm('Вы уверены что хотите удалить данный бренд ?')" type="submit" class="delete">--}}
+                                        {{--<i class="fa fa-remove"></i>--}}
+                                    {{--</button>--}}
 
-                                    {{ Form::close() }}
-                                </td>
-                            </tr>
-                        @endforeach
+                                    {{--{{ Form::close() }}--}}
+                                {{--</td>--}}
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
                         </tfoot>
                     </table>
                 </div>

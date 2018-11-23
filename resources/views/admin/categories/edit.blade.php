@@ -5,7 +5,6 @@
         <section class="content-header">
             <h1>
                 Добавить категорию
-                <small>приятные слова..</small>
             </h1>
         </section>
 
@@ -24,6 +23,19 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Название</label>
                             <input type="text" class="form-control" name="title" id="exampleInputEmail1" placeholder="" value="{{ $category->title }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Изображение</label>
+                        <img src="{{ $category->getImage() }}" alt="" class="img-responsive" width="200">
+                        <hr>
+                        <input type="file" id="exampleInputFile" name="image">
+                    </div></div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Описание</label>
+                            <textarea name="description" id="" cols="30" rows="10" class="form-control" >{{ $category->description }}</textarea>
                         </div>
                     </div>
                 </div>
