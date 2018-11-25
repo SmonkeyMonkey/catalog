@@ -11,7 +11,7 @@
         <!-- Main content -->
         <section class="content">
         {{ Form::open([
-        'route' => 'brand.store',
+        'route' => 'product.store',
         'files' => true,
         ]) }}
         <!-- Default box -->
@@ -30,6 +30,12 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Лицевая картинка</label>
                             <input type="file" id="exampleInputFile" name="image">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Стоимость</span>
+                            </div>
+                            <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price">
                         </div>
                         <div class="form-group">
                             <label>Изготовитель</label>
@@ -51,12 +57,8 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Описание(с сохранение форматирования)</label>
-                            <textarea name="description" id="" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
+                            <textarea name="specifications" id="" cols="30" rows="10" class="form-control">{{ old('specifications') }}</textarea>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">Изображение</label>
-                        <input type="file" id="exampleInputFile" name="image">
                     </div>
                 </div>
                 <!-- /.box-body -->

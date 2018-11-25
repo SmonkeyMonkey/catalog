@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,8 +16,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-
-        return view('admin.product.index',compact('brands'));
+        $products=Product::all();
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -38,19 +39,18 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required|min:2',
+            'image' => 'nullable|image'
+        ]);
+
+        $product=Product::create($request->all());
+        $product->setBrand($request->get('brand_id'));
+        $product->uploadImage($request->file('image'));
+        $product->toggleStatus($request->get('is_published'));
+        return redirect()->route('product.index')->with('create','Товар успешно добавлен');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -60,7 +60,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product=Product::findOrFail($id);
+        $brands=Brand::pluck('title','id')->all();
+        return view('admin.product.edit',compact('product','brands'));
     }
 
     /**
@@ -72,7 +74,16 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+            'image' => 'nullable|image'
+        ]);
+        $product=Product::findOrFail($id);
+        $product->update($request->all());
+        $product->uploadImage($request->file('image'));
+        $product->setBrand($request->get('brand_id'));
+        $product->toggleStatus($request->get('is_published'));
+        return redirect()->route('product.index')->with('update','Продукт успешно обновлен');
     }
 
     /**
@@ -83,6 +94,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->remove();
+        return redirect()->route('product.index')->with('delete','Продукт успешно удален');
     }
 }

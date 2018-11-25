@@ -22,51 +22,49 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Производители(бренды)</h3>
+                    <h3 class="box-title">Продукты</h3>
                     @include('admin._status')
                 </div>
 
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="{{ route('brand.create') }}" class="btn btn-success">Добавить</a>
+                        <a href="{{ route('product.create') }}" class="btn btn-success">Добавить</a>
                     </div>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Название</th>
-                            <th>Краткое описание</th>
-                            <th>Полное описание</th>
-                            <th>Картинка</th>
+                            <th>Производитель</th>
+                            <th>Характеристики</th>
+                            <th>Стоимость</th>
                             <th>Действия</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {{--@foreach($brands as $brand)--}}
-                            {{--<tr>--}}
-                                {{--<td>{{ $brand->id }}</td>--}}
-                                {{--<td>{{ $brand->title }}</td>--}}
-                                {{--<td>{{ $brand->description }}</td>--}}
-                                {{--<td>{{ $brand->about }}</td>--}}
-                                {{--<td>{{$brand->getCategoryTitle()}}</td>--}}
-                                {{--<td>{{$brand->getTagsTitle()}}</td>--}}
+                        @foreach($products as $product)
+                            <tr>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->title }}</td>
+                                <td>{{ $product->getBrandTitle() }}</td>
+                                <td>{{ $product->specifications }}</td>
+                                <td>{{ $product->getPrice()}}</td>
+                                <td>
+                                    <img src="{{ $product->getImage() }}" alt="" width="100">
+                                </td>
+                                <td>
+                                    <a href="{{ route('product.edit', $product->id) }}" class="fa fa-pencil"></a>
 
-                                {{--<td>--}}
-                                    {{--<img src="{{ $brand->getImage() }}" alt="" width="100">--}}
-                                {{--</td>--}}
-                                {{--<td>--}}
-                                    {{--<a href="{{ route('brand.edit', $brand->id) }}" class="fa fa-pencil"></a>--}}
+                                    {{ Form::open(['route'=>['product.destroy', $product->id], 'method'=>'delete']) }}
+                                    <button onclick="return confirm('Вы уверены что хотите удалить данный бренд ?')" type="submit" class="delete">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
 
-                                    {{--{{ Form::open(['route'=>['brand.destroy', $brand->id], 'method'=>'delete']) }}--}}
-                                    {{--<button onclick="return confirm('Вы уверены что хотите удалить данный бренд ?')" type="submit" class="delete">--}}
-                                        {{--<i class="fa fa-remove"></i>--}}
-                                    {{--</button>--}}
-
-                                    {{--{{ Form::close() }}--}}
-                                {{--</td>--}}
-                            {{--</tr>--}}
-                        {{--@endforeach--}}
+                                    {{ Form::close() }}
+                                </td>
+                            </tr>
+                        @endforeach
                         </tfoot>
                     </table>
                 </div>

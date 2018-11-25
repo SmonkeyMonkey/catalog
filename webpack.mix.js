@@ -44,24 +44,31 @@ mix.copy('resources/assets/admin/dist/img', 'public/img');
 mix.copy('resources/assets/admin/plugins/iCheck/minimal/blue.png','public/css');
 
 mix.styles([
-    'resources/assets/front/css/bootstrap.min.css',
-    'resources/assets/front/css/font-awesome.min.css',
-    'resources/assets/front/css/animate.min.css',
-    'resources/assets/front/css/owl.carousel.css',
-    'resources/assets/front/css/owl.theme.css',
-    'resources/assets/front/css/owl.transitions.css',
-    'resources/assets/front/css/style.css',
-    'resources/assets/front/css/responsive.css'
+    'resources/assets/web/css/slider.css',
+    'resources/assets/web/css/bootstrap.css',
+    'resources/assets/web/css/style.css',
+    'resources/assets/web/css/fontawesome-all.css',
+    'resources/assets/web/css/flexslider.css',
+    'resources/assets/web/css/swipebox.css',
+    'resources/assets/web/css/ken-burns.css',
 ],'public/css/front.css');
 
 mix.scripts([
-    'resources/assets/front/js/jquery-1.11.3.min.js',
-    'resources/assets/front/js/bootstrap.min.js',
-    'resources/assets/front/js/owl.carousel.min.js',
-    'resources/assets/front/js/jquery.stickit.min.js',
-    'resources/assets/front/js/menu.js',
-    'resources/assets/front/js/scripts.js'
+    'resources/assets/web/js/jquery-2.2.3.min.js',
+    'resources/assets/web/js/bootstrap.js',
+    'resources/assets/web/js/jquery.waypoints.min.js',
+    'resources/assets/web/js/jquery.countup.js',
+    'resources/assets/web/js/SmoothScroll.min.js',
+    'resources/assets/web/js/move-top.js',
+    'resources/assets/web/js/easing.js',
+    'resources/assets/web/js/snap.svg-min.js',
+    'resources/assets/web/js/main.js',
+    'resources/assets/web/js/jquery.flexslider.js',
+    'resources/assets/web/',
+    'resources/assets/web/',
 ], 'public/js/front.js');
 
-mix.copy('resources/assets/front/fonts', 'public/fonts');
-mix.copy('resources/assets/front/images', 'public/images');
+mix.copy('resources/web/css/images', 'public/css/images');
+mix.copy('resources/web/images', 'public/images');
+mix.copy('resources/web/webfonts', 'public/webfonts');
+

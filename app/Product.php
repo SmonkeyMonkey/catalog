@@ -18,10 +18,10 @@ class Product extends Model
             ]
         ];
     }
-    public function brands(){
+    public function brand(){
         return $this->belongsTo(Brand::class);
     }
-    protected $fillable=['title','description','price','specifications','thickness','layer','weight','size','group','classification','substances','bacteria_fungus'];
+    protected $fillable=['title','price','specifications'];
     public function uploadImage($image){
         if ($image==null){return;}
         $this->removeImage();
@@ -46,5 +46,35 @@ class Product extends Model
             return '/img/no-img.jpg';
         }
         return '/uploads/products/'.$this->image;
+    }
+    public function getBrandTitle(){
+        return $this->brand->title;
+    }
+    public function setBrand($id){
+        $this->brand_id = $id;
+        $this->save();
+    }
+    public function setDraft(){
+        $this->is_published=0;
+        $this->save();
+    }
+    public function setPublic(){
+        $this->is_published=1;
+        $this->save();
+    }
+    public function toggleStatus($value){
+        if($value==null){
+            return $this->setDraft();
+        }
+        return $this->setPublic();
+    }
+    public function getBrandID(){
+        return $this->brand->id;
+    }
+    public function getPrice(){
+        if($this->price == null){
+            return 'Договорная';
+        }
+        return $this->price;
     }
 }
