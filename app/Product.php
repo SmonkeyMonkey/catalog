@@ -19,7 +19,7 @@ class Product extends Model
         ];
     }
     public function brand(){
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class,'brand_id');
     }
     protected $fillable=['title','price','specifications'];
     public function uploadImage($image){
@@ -48,7 +48,10 @@ class Product extends Model
         return '/uploads/products/'.$this->image;
     }
     public function getBrandTitle(){
-        return $this->brand->title;
+        if($this->brand != null) {
+            return $this->brand->title;
+        }
+        return 'Категория временно отсутствует';
     }
     public function setBrand($id){
         $this->brand_id = $id;

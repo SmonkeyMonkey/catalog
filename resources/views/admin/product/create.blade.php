@@ -33,12 +33,12 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroup-sizing-default">Стоимость</span>
+                                <span class="input-group-text" id="inputGroup-sizing-default">Стоимость(указывать через точку,без запятой)</span>
                             </div>
-                            <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price">
+                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price">
                         </div>
                         <div class="form-group">
-                            <label>Изготовитель</label>
+                            <label>Производитель</label>
                             {{ Form::select('brand_id',
                             $brands,
                               null,

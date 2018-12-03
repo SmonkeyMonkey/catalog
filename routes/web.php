@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/i', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
@@ -20,3 +20,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
     Route::resource('/brand','BrandsController');
     Route::resource('/product','ProductsController');
 });
+Route::get('/','HomeController@index')->name('index');
+Route::get('/about','HomeController@about')->name('about');
+Route::get('/services','HomeController@services')->name('services');
+Route::get('/objects','HomeController@objects')->name('objects');
+Route::get('/contacts','HomeController@contacts')->name('contacts');
+Route::get('/categories/{slug}','HomeController@show')->name('category.brand');

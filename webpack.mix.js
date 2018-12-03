@@ -64,8 +64,6 @@ mix.scripts([
     'resources/assets/web/js/snap.svg-min.js',
     'resources/assets/web/js/main.js',
     'resources/assets/web/js/jquery.flexslider.js',
-    'resources/assets/web/',
-    'resources/assets/web/',
 ], 'public/js/front.js');
 
 mix.copy('resources/web/css/images', 'public/css/images');
