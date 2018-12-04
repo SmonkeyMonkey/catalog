@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrandsTable extends Migration
+class CreateCollectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateBrandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('brands', function (Blueprint $table) {
+        Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug');
+            $table->integer('brand_id');
             $table->string('title');
-            $table->text('description');
-            $table->text('about');
-            $table->string('image')->nullable();
-            $table->integer('is_published')->default(0);
-            $table->integer('category_id')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreateBrandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brands');
+        Schema::dropIfExists('collections');
     }
 }

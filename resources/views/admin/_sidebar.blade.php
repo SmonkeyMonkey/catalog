@@ -8,6 +8,7 @@
     <li><a href="{{ route('brand.index') }}"><i class="fa fa-sticky-note-o"></i> <span>Производители(Бренды)</span></a></li>
     <li><a href="{{ route('category.index') }}"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
     <li><a href="{{ route('product.index') }}"><i class="fa fa-tags"></i> <span>Продукты</span></a></li>
+    <li><a href="{{ route('collection.index') }}"><i class="fa fa-tags"></i> <span>Коллекции</span></a></li>
     <li>
         <a href="#">
             <i class="fa fa-commenting"></i> <span>Комментарии</span>

@@ -25,7 +25,7 @@ class HomeController extends Controller
     }
     public function show($slug){
         $category=Category::where('slug',$slug)->firstOrFail();
-        $brands=Brand::where('is_published',1)->firstOrFail();
+        $brands=Brand::all()->where('is_published',1);
         return view('pages.category',compact('category','brands'));
     }
 }

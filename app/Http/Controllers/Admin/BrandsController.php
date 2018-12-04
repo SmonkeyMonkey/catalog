@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,7 +27,8 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        return view('admin.brands.create');
+        $categories=Category::pluck('title','id')->all();
+        return view('admin.brands.create',compact('categories'));
     }
 
     /**
@@ -46,6 +48,7 @@ class BrandsController extends Controller
         $brand=Brand::create($request->all());
         $brand->uploadImage($request->file('image'));
         $brand->toggleStatus($request->get('is_published'));
+        $brand->setCategory($request->get('category_id'));
         return redirect()->route('brand.index')->with('create','Бренд успешно добавлен');
     }
     /**

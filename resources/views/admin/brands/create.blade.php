@@ -30,16 +30,14 @@
                         <div class="form-group">
                             <label for="exampleInputFile">Лицевая картинка</label>
                             <input type="file" id="exampleInputFile" name="image">
-
-                            <p class="help-block">Какое-нибудь уведомление о форматах..</p>
                         </div>
-                        {{--<div class="form-group">--}}
-                            {{--<label>Категория</label>--}}
-                            {{--{{ Form::select('category_id',--}}
-                            {{--$categories,--}}
-                              {{--null,--}}
-                              {{--['class' => 'form-control select2']) }}--}}
-                        {{--</div>--}}
+                        <div class="form-group">
+                            <label>Категория</label>
+                            {{ Form::select('category_id',
+                            $categories,
+                              null,
+                              ['class' => 'form-control select2']) }}
+                        </div>
                         {{--<div class="form-group">--}}
                             {{--<label>Теги</label>{{ Form::select('tags[]',--}}
                             {{--$tags,--}}

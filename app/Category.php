@@ -16,6 +16,9 @@ class Category extends Model
             ]
         ];
     }
+    public function brands(){
+        return $this->hasMany(Brand::class);
+    }
     protected $fillable=['title','description'];
     public function uploadImage($image){
         if ($image==null){return;}

@@ -9,7 +9,7 @@
                     <article class="blog-x row">
                         <div class="blog-img">
                             <a href="single.html">
-                                <img src="images/1.jpg" alt="" class="img-fluid" />
+                                <img src="{{ $category->getImage() }}" alt="" class="img-fluid" />
                             </a>
                         </div>
                         <div class="blog_info">
@@ -24,11 +24,10 @@
                             <img src="{{ $brand->getImage() }}" alt="" class="img-fluid">
                             <div class="media-body">
                                 <h5 class="mt-0">{{ $brand->title }}</h5>
-                                <p>{{ $brand->description }}</p>
+                                <p>{!! $brand->description !!}</p>
                             </div>
                         </div>
                         @endforeach
-
                     </div>
                     </div>
                 </div>

@@ -65,7 +65,7 @@
                                 {{--<a class="nav-link" href="{{ route('about') }}">О Нас</a>--}}
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="services.html">Услуги</a>
+                                <a class="nav-link" href="{{ route('services') }}">Услуги</a>
                             </li>
 
                             <li class="dropdown nav-item">
@@ -81,10 +81,10 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="projects.html">Проекты</a>
+                                <a class="nav-link" href="{{ route('objects') }}">Проекты</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Контакты</a>
+                                <a class="nav-link" href="{{ route('contacts') }}">Контакты</a>
                             </li>
                         </ul>
                     </div>

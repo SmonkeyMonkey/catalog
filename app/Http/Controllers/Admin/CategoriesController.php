@@ -82,6 +82,6 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         Category::find($id)->remove();
-        return redirect()->route('category.index')->with('delete','Категория успешно удалена');
+        return redirect()->route('category.index')->with('delete','Коллекция успешно удалена');
     }
 }

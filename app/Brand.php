@@ -21,6 +21,12 @@ class Brand extends Model
     public function product(){
         return $this->hasMany(Product::class);
     }
+    public function collections(){
+        return $this->hasMany(Collection::class);
+    }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
     protected $fillable=['title','description','about'];
     public function uploadImage($image){
         if ($image==null){return;}
@@ -60,5 +66,17 @@ class Brand extends Model
             return $this->setDraft();
         }
         return $this->setPublic();
+    }
+    public function setCategory($id){
+        if($id==null){return;}
+        //$this->category()->sync($id);
+        $this->category_id = $id;
+        $this->save();
+    }
+    public function getCategoryTitle(){
+        if($this->category != null){
+            return $this->category->title;
+        }
+        return 'Категория временно отсутствует';
     }
 }

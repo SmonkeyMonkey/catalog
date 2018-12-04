@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
     Route::resource('/category','CategoriesController');
     Route::resource('/brand','BrandsController');
     Route::resource('/product','ProductsController');
+    Route::resource('/collection','CollectionsController');
 });
 Route::get('/','HomeController@index')->name('index');
 Route::get('/about','HomeController@about')->name('about');
