@@ -17,7 +17,6 @@
         <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Обновляем анкету производитея</h3>
                     @include('admin.errors')
                 </div>
                 <div class="box-body">
@@ -33,13 +32,13 @@
                             <hr>
                             <input type="file" id="exampleInputFile" name="image">
                         </div>
-                        {{--<div class="form-group">--}}
-                            {{--<label>Категория</label>--}}
-                            {{--{{ Form::select('category_id',--}}
-                         {{--$categories,--}}
-                           {{--$post->getCategoryID(),--}}
-                           {{--['class' => 'form-control select2']) }}--}}
-                        {{--</div>--}}
+                        <div class="form-group">
+                            <label>Категория</label>
+                            {{ Form::select('category_id',
+                             $categories,
+                           $brand->getCategoryID(),
+                           ['class' => 'form-control select2']) }}
+                        </div>
                         {{--<div class="form-group">--}}
                             {{--<label>Теги</label>--}}
                             {{--{{ Form::select('tags[]',--}}

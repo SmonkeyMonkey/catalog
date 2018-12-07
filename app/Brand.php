@@ -79,4 +79,17 @@ class Brand extends Model
         }
         return 'Категория временно отсутствует';
     }
+    public function getCategoryID(){
+        if($this->category != null){
+            return $this->category->id;
+        }
+        return null;
+    }
+    public function setCollections($ids){
+        if($ids == null){
+            return;
+        };
+        $this->collections()->sync($ids);
+    }
+
 }

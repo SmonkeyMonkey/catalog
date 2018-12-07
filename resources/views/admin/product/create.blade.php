@@ -44,6 +44,13 @@
                               null,
                               ['class' => 'form-control select2']) }}
                         </div>
+                        <div class="form-group">
+                            <label>Коллекция</label>
+                            {{ Form::select('collection_id',
+                            $collections,
+                              null,
+                              ['class' => 'form-control select2']) }}
+                        </div>
                         <!-- checkbox -->
                         <div class="form-group">
                             <label>

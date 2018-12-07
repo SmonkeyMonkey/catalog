@@ -27,3 +27,4 @@ Route::get('/services','HomeController@services')->name('services');
 Route::get('/objects','HomeController@objects')->name('objects');
 Route::get('/contacts','HomeController@contacts')->name('contacts');
 Route::get('/categories/{slug}','HomeController@show')->name('category.brand');
+Route::get('/collections/{slug}','CollectionsController@show')->name('collections.show');

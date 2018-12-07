@@ -15,13 +15,12 @@ class CreateCollectionsTable extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('brand_id');
+            $table->string('slug')->unique();
+            $table->integer('brand_id')->nullable();
             $table->string('title');
-            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

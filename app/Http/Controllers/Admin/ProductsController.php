@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Brand;
+use App\Collection;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,7 +29,8 @@ class ProductsController extends Controller
     public function create()
     {
         $brands=Brand::pluck('title','id')->all();
-        return view('admin.product.create',compact('brands'));
+        $collections=Collection::pluck('title','id')->all();
+        return view('admin.product.create',compact('brands','collections'));
     }
 
     /**

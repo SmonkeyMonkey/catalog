@@ -46,15 +46,15 @@
                             <tr>
                                 <td>{{ $collection->id }}</td>
                                 <td>{{ $collection->title }}</td>
-                                <td>{{ $product->description }}</td>
+                                <td>{{ $collection->getBrandTitle() }}</td>
+                                <td>{{ $collection->description }}</td>
                                 <td>
                                     <a href="{{ route('collection.edit', $collection->id) }}" class="fa fa-pencil"></a>
 
                                     {{ Form::open(['route'=>['collection.destroy', $collection->id], 'method'=>'delete']) }}
-                                    <button onclick="return confirm('Вы уверены что хотите удалить данный бренд ?')" type="submit" class="delete">
+                                    <button onclick="return confirm('Вы уверены что хотите удалить данную коллекцию ?')" type="submit" class="delete">
                                         <i class="fa fa-remove"></i>
                                     </button>
-
                                     {{ Form::close() }}
                                 </td>
                             </tr>

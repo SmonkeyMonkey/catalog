@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Brand;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Collection;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,7 @@ class HomeController extends Controller
     }
     public function show($slug){
         $category=Category::where('slug',$slug)->firstOrFail();
-        $brands=Brand::all()->where('is_published',1);
+        $brands=$category->brands()->where('is_published',1)->get();
         return view('pages.category',compact('category','brands'));
     }
 }

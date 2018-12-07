@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Brand;
 
 class CollectionsController extends Controller
 {
@@ -26,7 +28,8 @@ class CollectionsController extends Controller
      */
     public function create()
     {
-        //
+        $brands=Brand::pluck('title','id');
+        return view('admin.collection.create',compact('brands'));
     }
 
     /**
@@ -37,18 +40,12 @@ class CollectionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Collection  $collection
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Collection $collection)
-    {
-        //
+        $this->validate($request,[
+            'title' => 'required',
+        ]);
+        $collection=Collection::create($request->all());
+        $collection->setBrand($request->get('brand_id'));
+        return redirect()->route('collection.index')->with('create','Коллекция успешно добавлена');
     }
 
     /**
@@ -57,9 +54,11 @@ class CollectionsController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function edit(Collection $collection)
+    public function edit($id)
     {
-        //
+        $collection=Collection::findOrFail($id);
+        $brands=Brand::pluck('title','id');
+        return view('admin.collection.edit',compact('collection','brands'));
     }
 
     /**
@@ -69,9 +68,14 @@ class CollectionsController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Collection $collection)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,
+            ['title'=> 'required|min:2']);
+        $collection=Collection::findOrFail($id);
+        $collection->setBrand($request->get('brand_id'));
+        $collection->update($request->all());
+        return redirect()->route('collection.index')->with('update','Коллекция успешно обновлена');
     }
 
     /**
@@ -83,5 +87,6 @@ class CollectionsController extends Controller
     public function destroy($id)
     {
         Collection::find($id)->delete();
+        return redirect()->route('collection.index')->with('delete','Коллекция удалена');
     }
 }

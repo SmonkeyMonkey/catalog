@@ -49,6 +49,7 @@ class BrandsController extends Controller
         $brand->uploadImage($request->file('image'));
         $brand->toggleStatus($request->get('is_published'));
         $brand->setCategory($request->get('category_id'));
+        $brand->setCollections($request->get('collections'));
         return redirect()->route('brand.index')->with('create','Бренд успешно добавлен');
     }
     /**
@@ -60,7 +61,8 @@ class BrandsController extends Controller
     public function edit($id)
     {
         $brand=Brand::find($id);
-        return view('admin.brands.edit',compact('brand'));
+        $categories=Category::pluck('title','id');
+        return view('admin.brands.edit',compact('brand','categories'));
     }
 
     /**
@@ -81,6 +83,7 @@ class BrandsController extends Controller
         $brand=Brand::findOrFail($id);
         $brand->update($request->all());
         $brand->uploadImage($request->file('image'));
+        $brand->setCategory($request->get('category_id'));
         $brand->toggleStatus($request->get('is_published'));
         return redirect()->route('brand.index')->with('update','Производитель успешно обновлен');
     }

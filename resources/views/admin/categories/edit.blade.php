@@ -33,6 +33,8 @@
                         <input type="file" id="exampleInputFile" name="image">
                     </div></div>
                     <div class="col-md-12">
+                        <label for="">Slug</label>
+                        <input class="form-control" type="text" name="slug" placeholder="Автоматическая генерация" value="{{ $category->slug ?? ""}}" readonly="">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Описание</label>
                             <textarea name="description" id="" cols="30" rows="10" class="form-control" >{{ $category->description }}</textarea>

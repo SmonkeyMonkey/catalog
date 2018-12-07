@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="{{ request()->is('contacts') ? 'btn btn-primary disabled' : 'nav-link' }}" href="{{ route('contacts') }}">Контакты</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.index') }}">админка</a>
+                        </li>
                     </ul>
                 </div>
 

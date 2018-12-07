@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Brand;
+use App\Collection;
 
 class Product extends Model
 {
@@ -20,6 +21,9 @@ class Product extends Model
     }
     public function brand(){
         return $this->belongsTo(Brand::class,'brand_id');
+    }
+    public function collection(){
+        return $this->belongsTo(Collection::class,'collection_id');
     }
     protected $fillable=['title','price','specifications'];
     public function uploadImage($image){

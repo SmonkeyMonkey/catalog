@@ -52,7 +52,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category=Category::find($id);
+        $category=Category::findOrFail($id);
         return view('admin.categories.edit',compact('category'));
     }
 
@@ -67,7 +67,7 @@ class CategoriesController extends Controller
     {
         $this->validate($request,
             ['title'=> 'required|min:2']);
-        $category=Category::find($id);
+        $category=Category::findOrFail($id);
         $category->uploadImage($request->file('image'));
         $category->update($request->all());
         return redirect()->route('category.index')->with('update','Категория успешно обновлена');

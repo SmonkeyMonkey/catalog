@@ -24,7 +24,13 @@
                             <img src="{{ $brand->getImage() }}" alt="" class="img-fluid">
                             <div class="media-body">
                                 <h5 class="mt-0">{{ $brand->title }}</h5>
-                                <p>{!! $brand->description !!}</p>
+                                <h6><p>{!! $brand->description !!}</p></h6>
+                                @if(!$brand->collections->isEmpty())
+                                    <label>Коллекции:</label>
+                                     @foreach($brand->collections as $collection)
+                                        <a href="{{ route('collections.show',$collection->slug) }}">{{ $collection->title }}</a>
+                                      @endforeach
+                                @endif
                             </div>
                         </div>
                         @endforeach

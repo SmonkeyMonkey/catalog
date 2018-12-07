@@ -39,10 +39,10 @@
                               ['class' => 'form-control select2']) }}
                         </div>
                         {{--<div class="form-group">--}}
-                            {{--<label>Теги</label>{{ Form::select('tags[]',--}}
-                            {{--$tags,--}}
+                            {{--<label>Теги</label>{{ Form::select('collections[]',--}}
+                            {{--$collections,--}}
                               {{--null,--}}
-                              {{--['class' => 'form-control select2','multiple'=>'multiple','data-placeholder'=>'Выберите теги']) }}--}}
+                              {{--['class' => 'form-control select2','multiple'=>'multiple','data-placeholder'=>'Коллекции производителя:']) }}--}}
 
                         {{--</div>--}}
                         <!-- Date -->
