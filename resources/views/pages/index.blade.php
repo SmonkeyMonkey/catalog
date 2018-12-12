@@ -20,17 +20,7 @@
     </script>
     <!--// Meta tag Keywords -->
 
-    <link href="{{ asset('css/slider.css') }}" type="text/css" rel="stylesheet" media="all">
-
-    <!-- css files -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}"> <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }} " type="text/css" media="all" /> <!-- Style-CSS -->
-    <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css')}}"> <!-- Font-Awesome-Icons-CSS -->
-    <!-- //css files -->
-
-    <!-- testimonials css -->
-    <link rel="stylesheet" href="{{ asset('css/flexslider.css')}}'" type="text/css" media="screen" property="" /><!-- flexslider css -->
-    <!-- //testimonials css -->
+    <link href="{{ asset('css/front.css') }}" type="text/css" rel="stylesheet" media="all">
 
     <!-- web-fonts -->
     <link href="//fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic,latin-ext" rel="stylesheet">
@@ -378,7 +368,7 @@
                             <li>
                                 <div class="item g1">
                                     <div class="agile-dish-caption">
-                                        <img class="lazyOwl" src="images/t2.jpg" alt="" />
+                                        <img class="lazyOwl" src="{{ asset('images/t2.jpg') }}" alt="" />
                                         <h5>don libero</h5>
                                         <h4>Great Place For Great Price</h4>
                                     </div>
@@ -390,7 +380,7 @@
                             <li>
                                 <div class="item g1">
                                     <div class="agile-dish-caption">
-                                        <img class="lazyOwl" src="images/t3.jpg" alt="" />
+                                        <img class="lazyOwl" src="{{ asset('images/t3.jpg') }}" alt="" />
                                         <h5>Elisa</h5>
                                         <h4>Lot Of Furniture Design</h4>
                                     </div>
@@ -483,17 +473,12 @@
 <!-- js-scripts -->
 
 <!-- js -->
-<script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+<script type="text/javascript" src="{{ asset('js/front.js')}}"></script>
 <!-- //js -->
 
-<!-- banner js -->
-<script src="{{ asset('js/snap.svg-min.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script> <!-- Resource jQuery -->
-<!-- //banner js -->
 
 <!-- flexSlider --><!-- for testimonials -->
-<script defer src="{{ asset('js/jquery.flexslider.js') }}"></script>
+
 <script type="text/javascript">
     $(window).load(function(){
         $('.flexslider').flexslider({
@@ -507,9 +492,6 @@
 <!-- //flexSlider --><!-- for testimonials -->
 
 <!-- start-smoth-scrolling -->
-<script src="{{ asset('js/SmoothScroll.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/move-top.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/easing.js') }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
         $(".scroll").click(function(event){
@@ -521,14 +503,14 @@
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function() {
-        /*
+
             var defaults = {
             containerID: 'toTop', // fading element id
             containerHoverID: 'toTopHover', // fading element hover id
             scrollSpeed: 1200,
             easingType: 'linear'
             };
-        */
+
 
         $().UItoTop({ easingType: 'easeOutQuart' });
 

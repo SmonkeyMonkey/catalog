@@ -7,7 +7,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <style>
         table.table form
         {
@@ -427,9 +427,8 @@
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
-<script src="/js/admin.js"></script>
-<script src="/plugins/ckeditor/ckeditor.js"></script>
-<script src="/plugins/ckfinder/ckfinder.js"></script>
+<script src="{{ asset('js/admin.js') }}"></script>
+<script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
 <script>
     $(document).ready(function(){
         var editor = CKEDITOR.replaceAll();

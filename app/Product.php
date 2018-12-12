@@ -57,8 +57,18 @@ class Product extends Model
         }
         return 'Категория временно отсутствует';
     }
+    public function getCollectionTitle(){
+        if($this->collection != null){
+            return $this->collection->title;
+        }
+        return 'Коллекция по каким-либо причинам отсутствует';
+    }
     public function setBrand($id){
         $this->brand_id = $id;
+        $this->save();
+    }
+    public function setCollection($id){
+        $this->collection_id = $id;
         $this->save();
     }
     public function setDraft(){
@@ -77,6 +87,9 @@ class Product extends Model
     }
     public function getBrandID(){
         return $this->brand->id;
+    }
+    public function getCollectionID(){
+        return $this->collection->id;
     }
     public function getPrice(){
         if($this->price == null){

@@ -37,6 +37,7 @@
                             <th>ID</th>
                             <th>Название</th>
                             <th>Производитель</th>
+                            <th>Коллекция</th>
                             <th>Характеристики</th>
                             <th>Стоимость</th>
                             <th>Действия</th>
@@ -48,7 +49,8 @@
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->title }}</td>
                                 <td>{{ $product->getBrandTitle() }}</td>
-                                <td>{{ $product->specifications }}</td>
+                                <td> {{ $product->getCollectionTitle() }}</td>
+                                <td>{!!   $product->specifications !!}</td>
                                 <td>{{ $product->getPrice()}}</td>
                                 <td>
                                     <img src="{{ $product->getImage() }}" alt="" width="100">

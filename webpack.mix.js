@@ -66,7 +66,7 @@ mix.scripts([
     'resources/assets/web/js/jquery.flexslider.js',
 ], 'public/js/front.js');
 
-mix.copy('resources/web/css/images', 'public/css/images');
-mix.copy('resources/web/images', 'public/images');
-mix.copy('resources/web/webfonts', 'public/webfonts');
+mix.copy('resources/assets/web/css/images', 'public/css/images');
+mix.copyDirectory('resources/assets/web/images', 'public/images');
+mix.copyDirectory('resources/assets/web/webfonts', 'public/webfonts');
 

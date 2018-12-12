@@ -17,6 +17,7 @@ class CreateCollectionsTable extends Migration
             $table->increments('id');
             $table->string('slug')->unique();
             $table->integer('brand_id')->nullable();
+            $table->text('description')->nullable();
             $table->string('title');
             $table->timestamps();
         });

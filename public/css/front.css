@@ -11122,7 +11122,7 @@ ul.footer-nav li a:hover {
   transform: translateZ(0) translateX(100%) rotateZ(180deg);
 }
 .gal-spin-effect.vertical .gal-text-box:after {
-  -webkit-transform: translateZ(0) translateX(-100%) rotateZ(180deg);
+  -webkit-transform: translateZ(0) translateX(-100%) rotateZ(190deg);
   -moz-transform: translateZ(0) translateX(-100%) rotateZ(180deg);
   -ms-transform: translateZ(0) translateX(-100%) rotateZ(180deg);
   -o-transform: translateZ(0) translateX(-100%) rotateZ(180deg);

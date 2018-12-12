@@ -48,6 +48,7 @@ class ProductsController extends Controller
 
         $product=Product::create($request->all());
         $product->setBrand($request->get('brand_id'));
+        $product->setCollection($request->get('collection_id'));
         $product->uploadImage($request->file('image'));
         $product->toggleStatus($request->get('is_published'));
         return redirect()->route('product.index')->with('create','Товар успешно добавлен');
@@ -64,7 +65,8 @@ class ProductsController extends Controller
     {
         $product=Product::findOrFail($id);
         $brands=Brand::pluck('title','id')->all();
-        return view('admin.product.edit',compact('product','brands'));
+        $collections=Collection::pluck('title','id')->all();
+        return view('admin.product.edit',compact('product','brands','collections'));
     }
 
     /**
@@ -84,6 +86,7 @@ class ProductsController extends Controller
         $product->update($request->all());
         $product->uploadImage($request->file('image'));
         $product->setBrand($request->get('brand_id'));
+        $product->setCollection($request->get('collection_id'));
         $product->toggleStatus($request->get('is_published'));
         return redirect()->route('product.index')->with('update','Продукт успешно обновлен');
     }

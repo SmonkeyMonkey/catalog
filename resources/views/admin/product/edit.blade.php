@@ -39,10 +39,17 @@
                             <input type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="price" value="{{ $product->price }}">
                         </div>
                         <div class="form-group">
-                            <label>Изготовитель</label>
+                            <label>Производитель</label>
                             {{ Form::select('brand_id',
                             $brands,
                               $product->getBrandID(),
+                              ['class' => 'form-control select2']) }}
+                        </div>
+                        <div class="form-group">
+                            <label>Коллекция</label>
+                            {{ Form::select('collection_id',
+                            $collections,
+                              $product->getCollectionID(),
                               ['class' => 'form-control select2']) }}
                         </div>
                         <!-- checkbox -->
