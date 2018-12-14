@@ -28,4 +28,5 @@ Route::get('/objects','HomeController@objects')->name('objects');
 Route::get('/contacts','HomeController@contacts')->name('contacts');
 Route::get('/categories/{slug}','HomeController@show')->name('category.brand');
 Route::get('/collections/{slug}','CollectionsController@show')->name('collections.show');
-Route::get('/{collection}/{slug}','ProductsController@index')->name('products.index');
+//Route::get('/products/{slug}','ProductsController@index')->name('products.index');
+Route::get('/collections/{collection}/{product?}','ProductsController@index')->name('test');

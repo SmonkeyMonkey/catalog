@@ -55,7 +55,7 @@ class Product extends Model
         if($this->brand != null) {
             return $this->brand->title;
         }
-        return 'Категория временно отсутствует';
+        return 'Производитель отсутствует';
     }
     public function getCollectionTitle(){
         if($this->collection != null){

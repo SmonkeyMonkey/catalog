@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function index($collection,$slug){
-        $collection=Collection::where('collection','slug')->firstOrFail();
-        $product=Product::where('slug','slug')->firstOrFail();
-        return view('product.index',compact('collection','product'));
+    public function index($collection,$product){
+        $collection=Collection::where('slug',$collection)->firstOrFail();
+        $product=$collection->products()->firstOrFail();
+        return view('pages.product',compact('collection','product'));
     }
+
 }

@@ -29,8 +29,8 @@
                                 <div class="row gallery-grids">
                                 @foreach($products as $product)
                                 <div class="col-lg-3 col-md-4 col-sm-6 ggd baner-top small wow fadeInLeft animated" data-wow-delay=".4s">
-                                    <a href="#" class="b-link-stripe b-animate-go  swipebox">
-                                        <div class="gal-spin-effect vertical ">
+                                    <a href="{{ route('test',['collection'=>$collection->slug,'product'=>$product->slug])}}" class="b-link-stripe b-animate-go  swipebox">
+                                        <div class="gal-spin-effect vertical">
                                             <img src="{{ $product->getImage() }}" alt=" " />
                                             <div class="gal-text-box">
                                                 <div class="info-gal-con">
@@ -38,7 +38,6 @@
                                                     <span class="separator"></span>
                                                     <p>Стоимость:{{ $product->getPrice() }}</p>
                                                     <span class="separator"></span>
-
                                                 </div>
                                             </div>
                                         </div>

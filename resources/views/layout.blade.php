@@ -61,19 +61,19 @@
             <div class="list-footer">
                 <ul class="footer-nav text-center">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="{{ route('index') }}">Главная</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="{{ route('about') }}">О нас</a>
                     </li>
                     <li>
-                        <a href="services.html">Services</a>
+                        <a href="{{ route('services') }}">Услуги</a>
                     </li>
                     <li>
-                        <a href="projects.html">Gallery</a>
+                        <a href="{{ route('objects') }}">Обьекты</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="{{ route('contacts') }}">Контакты</a>
                     </li>
                 </ul>
             </div>
