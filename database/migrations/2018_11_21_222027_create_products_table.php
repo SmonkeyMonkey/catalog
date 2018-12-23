@@ -22,7 +22,6 @@ class CreateProductsTable extends Migration
             $table->text('specifications')->nullable();
             $table->decimal('price',10,2)->nullable();
             $table->string('image')->nullable();
-            $table->integer('is_published')->default(0);
             $table->timestamps();
         });
     }

@@ -10,8 +10,8 @@ class ProductsController extends Controller
 {
     public function index($collection,$product){
         $collection=Collection::where('slug',$collection)->firstOrFail();
-        $product=$collection->products()->firstOrFail();
+        $product=Product::where('slug',$product)->firstOrFail();
+        \Debugbar::enable();
         return view('pages.product',compact('collection','product'));
     }
-
 }

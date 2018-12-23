@@ -51,15 +51,6 @@
                               null,
                               ['class' => 'form-control select2']) }}
                         </div>
-                        <!-- checkbox -->
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" class="minimal" name="is_published">
-                            </label>
-                            <label>
-                                Опубликовать
-                            </label>
-                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">

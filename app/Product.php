@@ -8,6 +8,17 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use App\Brand;
 use App\Collection;
 
+/**
+ * App\Product
+ *
+ * @property-read \App\Brand $brand
+ * @property-read \App\Collection $collection
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Product findSimilarSlugs($attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Product newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Product newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Product query()
+ * @mixin \Eloquent
+ */
 class Product extends Model
 {
     use Sluggable;
@@ -96,5 +107,11 @@ class Product extends Model
             return 'Договорная';
         }
         return $this->price;
+    }
+    public function getRelatedProduct(){
+        return self::where('collection_id',$this->collection->id)->get();
+    }
+    public function related(){
+        return self::all()->except($this->id);
     }
 }

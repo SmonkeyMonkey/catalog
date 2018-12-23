@@ -7,6 +7,18 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Product;
 
+/**
+ * App\Brand
+ *
+ * @property-read \App\Category $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Collection[] $collections
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $product
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Brand findSimilarSlugs($attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Brand newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Brand newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Brand query()
+ * @mixin \Eloquent
+ */
 class Brand extends Model
 {
     use Sluggable;

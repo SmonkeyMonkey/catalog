@@ -16,33 +16,38 @@
                     </div>
                     <div class="clearfix"></div>
                 </article>
+
                 <div class="comment-top">
-                    <h4>Похожие товары</h4>
-                    <div class="related-post-carousel"><!--related post carousel-->
-                        <div class="related-heading">
-                            <h4>You might also like</h4>
-                        </div>
-                        <div class="items">
-
-                                <div class="single-item">
-                                    <a href="#">
-                                        <img src="#" alt="">
-                                        <p>DSDA</p>
-                                    </a>
+                    <div class="gallery py-5">
+                        <div class="container py-sm-3">
+                            @if($product->related()->isNotEmpty())
+                                <h2 class="heading text-capitalize mb-sm-5 mb-3"> Похожие продукты </h2>
+                                <div class="row gallery-grids">
+                                    @foreach($product->getRelatedProduct() as $item)
+                                        <div class="col-lg-3 col-md-4 col-sm-6 ggd baner-top small wow fadeInLeft animated" data-wow-delay=".4s">
+                                            <a href="{{ route('products.show',['collection'=>$collection->slug,'product'=>$item->slug])}}" class="b-link-stripe b-animate-go  swipebox">
+                                                <div class="gal-spin-effect vertical">
+                                                    <img src="{{ $item->getImage() }}" alt=" " />
+                                                    <div class="gal-text-box">
+                                                        <div class="info-gal-con">
+                                                            <h4>{{ $item->title }}</h4>
+                                                            <span class="separator"></span>
+                                                            <p>Стоимость:{{ $item->getPrice() }}</p>
+                                                            <span class="separator"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
                                 </div>
-
-
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img src="images/t2.jpg" alt="" class="img-fluid">
-                        <div class="media-body">
-                            <h5 class="mt-0">Richard Spark</h5>
-                            <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
-                                Cras a ornare elit.</p>
+                            @endif
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
             <aside class="col-lg-4 single-left">
 
@@ -50,9 +55,7 @@
                 <div class="single-gd">
                     <h3>Производитель</h3>
                     <h4>{{ $product->getBrandTitle() }}</h4>
-                    <img src="{{ asset('images/a1.jpg') }}" class="img-fluid" alt="">
-                    <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
-                        Cras a ornare elit.</p>
+
                 </div>
 
             </aside>

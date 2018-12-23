@@ -10,8 +10,8 @@ class CollectionsController extends Controller
 {
     public function show($slug){
         $collection=Collection::where('slug',$slug)->firstOrFail();
-        $products=$collection->products()->where('is_published',1)->get();
+        $products=$collection->products()->get();
         return view('pages.collection',compact('collection','products'));
-        //$collection=Collection::where('slug',$slug)->findOrFail();
+
     }
 }

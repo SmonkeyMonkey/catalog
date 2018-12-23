@@ -5,6 +5,17 @@ namespace App;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Collection
+ *
+ * @property-read \App\Brand $brands
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Collection findSimilarSlugs($attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Collection newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Collection newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Collection query()
+ * @mixin \Eloquent
+ */
 class Collection extends Model
 {
     use Sluggable;

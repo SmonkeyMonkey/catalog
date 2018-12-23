@@ -59,7 +59,7 @@
                                     <a href="{{ route('product.edit', $product->id) }}" class="fa fa-pencil"></a>
 
                                     {{ Form::open(['route'=>['product.destroy', $product->id], 'method'=>'delete']) }}
-                                    <button onclick="return confirm('Вы уверены что хотите удалить данный бренд ?')" type="submit" class="delete">
+                                    <button onclick="return confirm('Вы уверены что хотите удалить данный продукт ?')" type="submit" class="delete">
                                         <i class="fa fa-remove"></i>
                                     </button>
 
