@@ -10,10 +10,10 @@
     <li><a href="{{ route('product.index') }}"><i class="fa fa-tags"></i> <span>Продукты</span></a></li>
     <li><a href="{{ route('collection.index') }}"><i class="fa fa-tags"></i> <span>Коллекции</span></a></li>
     <li>
-        <a href="#">
-            <i class="fa fa-commenting"></i> <span>Комментарии</span>
+        <a href="{{ route('question.index') }}">
+            <i class="fa fa-commenting"></i> <span>Вопросы</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-green">Ком</small>
+              <small class="label pull-right bg-green">{{ $newQuestions }}</small>
             </span>
         </a>
     </li>

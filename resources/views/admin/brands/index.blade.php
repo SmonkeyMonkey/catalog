@@ -1,6 +1,14 @@
 @extends('admin.layout')
 
 @section('content')
+    <style>
+        p {
+            width: 400px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

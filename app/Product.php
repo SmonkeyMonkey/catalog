@@ -82,20 +82,6 @@ class Product extends Model
         $this->collection_id = $id;
         $this->save();
     }
-    public function setDraft(){
-        $this->is_published=0;
-        $this->save();
-    }
-    public function setPublic(){
-        $this->is_published=1;
-        $this->save();
-    }
-    public function toggleStatus($value){
-        if($value==null){
-            return $this->setDraft();
-        }
-        return $this->setPublic();
-    }
     public function getBrandID(){
         return $this->brand->id;
     }
@@ -109,9 +95,6 @@ class Product extends Model
         return $this->price;
     }
     public function getRelatedProduct(){
-        return self::where('collection_id',$this->collection->id)->get();
-    }
-    public function related(){
-        return self::all()->except($this->id);
+        return self::where('collection_id','=',$this->collection->id)->get();
     }
 }

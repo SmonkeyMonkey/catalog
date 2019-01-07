@@ -20,6 +20,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
     Route::resource('/brand','BrandsController');
     Route::resource('/product','ProductsController');
     Route::resource('/collection','CollectionsController');
+    Route::resource('/question','QuestionsController');
 });
 Route::get('/','HomeController@index')->name('index');
 Route::get('/about','HomeController@about')->name('about');
@@ -29,3 +30,4 @@ Route::get('/contacts','HomeController@contacts')->name('contacts');
 Route::get('/categories/{slug}','HomeController@show')->name('category.brand');
 Route::get('/collections/{slug}','CollectionsController@show')->name('collections.show');
 Route::get('/collections/{collection}/{product?}','ProductsController@index')->name('products.show');
+Route::post('/comment','QuestionController@store')->name('question.add');

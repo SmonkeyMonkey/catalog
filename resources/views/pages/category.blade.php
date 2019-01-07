@@ -25,7 +25,7 @@
                             <div class="media-body">
                                 <h5 class="mt-0">{{ $brand->title }}</h5>
                                 <h6><p>{!! $brand->description !!}</p></h6>
-                                @if(!$brand->collections->isEmpty())
+                                @if($brand->collections->isNotEmpty())
                                     <label>Коллекции:</label>
                                      @foreach($brand->collections as $collection)
                                         <a href="{{ route('collections.show',$collection->slug) }}">{{ $collection->title }}</a>

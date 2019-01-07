@@ -15,11 +15,11 @@
                             <a class="nav-link" href="{{ route('index') }}">Главная страница</a>
                         </li>
                         <li class="nav-item">
-                            <a class="{{ request()->is('about') ? 'btn btn-primary disabled' : 'nav-link' }}" href="{{ route('about') }} ">О нас</a>
+                            <a class="{{ request()->is('about') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('about') }} ">О нас</a>
                         </li>
                         <li class="nav-item">
                             {{--<a class="nav-link" href="{{ route('services') }}">Услуги</a>--}}
-                            <a class="{{ request()->is('services') ? 'btn btn-primary disabled' : 'nav-link' }}" href="{{ route('services') }} ">Услуги</a>
+                            <a class="{{ request()->is('services') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('services') }} ">Услуги</a>
                         </li>
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Каталог
@@ -34,14 +34,14 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="{{ request()->is('objects') ? 'btn btn-primary disabled' : 'nav-link' }}" href="{{ route('objects') }}">Объекты</a>
+                            <a class="{{ request()->is('objects') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('objects') }}">Объекты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="{{ request()->is('contacts') ? 'btn btn-primary disabled' : 'nav-link' }}" href="{{ route('contacts') }}">Контакты</a>
+                            <a class="{{ request()->is('contacts') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('contacts') }}">Контакты</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="float-right" href="{{ route('admin.index') }}">админка</a>
+                        <li class="nav-item nav-fill">
+                            <a class="nav-link" href="{{ route('admin.index') }}">админ</a>
                         </li>
                     </ul>
                 </div>

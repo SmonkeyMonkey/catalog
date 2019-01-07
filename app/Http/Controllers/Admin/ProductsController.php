@@ -50,7 +50,6 @@ class ProductsController extends Controller
         $product->setBrand($request->get('brand_id'));
         $product->setCollection($request->get('collection_id'));
         $product->uploadImage($request->file('image'));
-        $product->toggleStatus($request->get('is_published'));
         return redirect()->route('product.index')->with('create','Товар успешно добавлен');
     }
 
@@ -87,7 +86,6 @@ class ProductsController extends Controller
         $product->uploadImage($request->file('image'));
         $product->setBrand($request->get('brand_id'));
         $product->setCollection($request->get('collection_id'));
-        $product->toggleStatus($request->get('is_published'));
         return redirect()->route('product.index')->with('update','Продукт успешно обновлен');
     }
 

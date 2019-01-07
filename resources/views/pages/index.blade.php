@@ -47,11 +47,11 @@
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item ">
-                                <a class="{{ request()->is('/') ? 'btn btn-primary disabled' : 'nav-link' }}" href="{{ route('index') }} ">Главная страница</a>
+                                <a class="{{ request()->is('/') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('index') }} ">Главная страница</a>
                                 {{--<a class="btn btn-primary disabled" href="{{ route('index') }}">Главная страница <span class="sr-only">(current)</span></a>--}}
                             </li>
                             <li class="nav-item">
-                                <a class="{{ request()->is('about') ? 'btn btn-primary disabled' : 'nav-link' }}" href="{{ route('about') }} ">О нас</a>
+                                <a class="{{ request()->is('about') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('about') }} ">О нас</a>
                                 {{--<a class="nav-link" href="{{ route('about') }}">О Нас</a>--}}
                             </li>
                             <li class="nav-item">

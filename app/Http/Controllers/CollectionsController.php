@@ -12,6 +12,5 @@ class CollectionsController extends Controller
         $collection=Collection::where('slug',$slug)->firstOrFail();
         $products=$collection->products()->get();
         return view('pages.collection',compact('collection','products'));
-
     }
 }
