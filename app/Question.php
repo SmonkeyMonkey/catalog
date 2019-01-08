@@ -8,7 +8,7 @@ class Question extends Model
 {
     protected $fillable=['name','message','answer'];
     public function product(){
-        return $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class,'product_id');
     }
     public static function addQuestion($fields,$id){
         $question=new static();
@@ -24,11 +24,9 @@ class Question extends Model
         $this->product_id=$id;
         $this->save();
     }
-    public function hasAnswer(){
-        if($this->answer != null){
-            return true;
-        }
-        return false;
+    public function setActive(){
+        $this->is_active=1;
+        $this->save();
     }
     public function getAnswer(){
         if($this->answer == null){
@@ -36,4 +34,5 @@ class Question extends Model
         }
         return $this->answer;
     }
+
 }

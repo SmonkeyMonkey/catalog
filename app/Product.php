@@ -36,6 +36,9 @@ class Product extends Model
     public function collection(){
         return $this->belongsTo(Collection::class,'collection_id');
     }
+    public function question(){
+        return $this->hasMany(Question::class);
+    }
     protected $fillable=['title','price','specifications'];
     public function uploadImage($image){
         if ($image==null){return;}
@@ -96,5 +99,8 @@ class Product extends Model
     }
     public function getRelatedProduct(){
         return self::where('collection_id','=',$this->collection->id)->get();
+    }
+    public function getQuestion(){
+        return $this->question()->where('is_active',1)->get();
     }
 }

@@ -45,6 +45,7 @@ class QuestionsController extends Controller
         ]);
         $question=Question::findOrFail($id);
         $question->update($request->all());
+        $question->setActive();
         return redirect()->route('question.index')->with('update','Ответ успешно добавлен/изменен');
     }
 

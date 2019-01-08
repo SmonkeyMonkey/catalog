@@ -82,18 +82,22 @@
                     </div>
                 </div>
                 <div class="comment-top">
+                    @if($product->getQuestion()->isEmpty())
+                        <h4>Еще никто не задал вопрос по данному товару</h4>
+                        @else
                     <h4>Вопрос-ответ</h4>
+                    @endif
+                    @foreach($product->getQuestion() as $question)
                     <div class="media mb-3">
-                        <img src="images/t1.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('images/noavatar.jpg') }}" alt="" class="img-fluid">
                         <div class="media-body">
-                            <h5 class="mt-0">Joseph Goh</h5>
-                            <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
-                                Cras a ornare elit.</p>
+                            <h5 class="mt-0">{{ $question->name }}</h5>
+                            <p>{!! $question->message !!}</p>
                             <hr>
-                            <p>Lorem Ipsum convallis diam consequat magna vulputate malesuada. id dignissim sapien velit id felis ac cursus eros.
-                                Cras a ornare elit.</p>
+                            <p>{!! $question->answer ?? '' !!}</p>
                         </div>
                     </div>
+                        @endforeach
 
                 </div>
 

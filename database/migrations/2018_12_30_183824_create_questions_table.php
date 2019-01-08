@@ -18,6 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->string('name');
             $table->text('message');
             $table->text('answer')->nullable();
+            $table->integer('is_active')->nullable()->default(0);
             $table->integer('product_id');
             $table->timestamps();
         });

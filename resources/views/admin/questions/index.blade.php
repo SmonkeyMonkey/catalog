@@ -52,7 +52,7 @@
                                 <td>{{ $question->id }}</td>
                                 <td>{{ $question->name }}</td>
                                 <td> <p>{{ $question->message }}</p></td>
-                                <td> <p>{{ $question->getAnswer() }}</p></td>
+                                <td> <p>{!!  $question->getAnswer() !!}</p></td>
                                 <td>
                                     <a href="{{ route('question.edit', $question->id) }}" class="fa fa-comment"></a>
                                     {{ Form::open(['route'=>['question.destroy', $question->id], 'method'=>'delete']) }}
