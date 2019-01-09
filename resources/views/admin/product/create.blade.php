@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Лицевая картинка</label>
+                            <label for="exampleInputFile">Картинка</label>
                             <input type="file" id="exampleInputFile" name="image">
                         </div>
                         <div class="input-group mb-3">

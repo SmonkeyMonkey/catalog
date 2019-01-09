@@ -1,14 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <title> Intrend Interior Category Flat Bootstrap Responsive Website Template | Index : W3layouts</title>
 
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="Intrend Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <meta name="keywords" content="" />
     <script type="application/x-javascript">
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -39,7 +38,7 @@
             <div class="container agile-banner_nav">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-                    <h1><a class="navbar-brand" href="{{ route('index') }}">In <span class="display"> Trend</span></a></h1>
+                    <h6><a class="navbar-brand" href="{{ route('index') }}">In <span class="display">Trend</span></a></h6>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -102,7 +101,7 @@
                         <div class="text-center">
                             <h2>Interior Architecture </h2>
                             <h3> Furniture </h3>
-                            <a href="about.html" class="read">Read More <i class="fas fa-caret-right"></i></a>
+
                         </div>
                     </div>
                 </div> <!-- .cd-radial-slider-content -->
@@ -124,7 +123,7 @@
                         <div class="text-center">
                             <h3>Interior Furniture </h3>
                             <h3> Architecture </h3>
-                            <a href="about.html" class="read">Read More <i class="fas fa-caret-right"></i></a>
+
 
                         </div>
                     </div>
@@ -147,7 +146,7 @@
                         <div class="text-center">
                             <h3>Interior Design </h3>
                             <h3> Architecture </h3>
-                            <a href="about.html" class="read">Read More <i class="fas fa-caret-right"></i></a>
+
                         </div>
                     </div>
                 </div> <!-- .cd-radial-slider-content -->
@@ -169,7 +168,7 @@
                         <div class="text-center">
                             <h3>Interior Architecture </h3>
                             <h3> furniture </h3>
-                            <a href="about.html" class="read">Read More <i class="fas fa-caret-right"></i></a>
+
                         </div>
                     </div>
                 </div> <!-- .cd-radial-slider-content -->
@@ -192,7 +191,7 @@
                 <div class="card-body bg-light pl-0 pr-0 pt-0">
                     <h5 class=" card-title titleleft">Dining Chairs</h5>
                     <p class="card-text mb-3">Class aptent taciti sociosqu adis litora torquent per conubia nostra per inceptos himenaeos.</p>
-                    <a href="#ab-bot" class="btn scroll">View More</a>
+
                 </div>
                 <img class="card-img-top" src="images/a1.jpg" alt="Card image cap">
             </div>
@@ -201,7 +200,7 @@
                 <div class="card-body bg-light text-center">
                     <h5 class="card-title pt-3">Office Chairs</h5>
                     <p class="card-text mb-3 ">Class aptent taciti sociosqu per conubia nostra per inceptos ad himenaeos.</p>
-                    <a href="#ab-bot" class="btn scroll">View More</a>
+
                 </div>
             </div>
             <div class="card col-lg-3 col-md-6 border-0 mt-lg-0 mt-5 ">
@@ -209,14 +208,14 @@
                 <div class="card-body bg-light text-center">
                     <h5 class="card-title pt-3">Home Chairs</h5>
                     <p class="card-text mb-3 ">Class aptent taciti sociosqu per conubia nostra per inceptos ad himenaeos.</p>
-                    <a href="#ab-bot" class="btn scroll">View More</a>
+
                 </div>
             </div>
             <div class="card col-lg-3 col-md-6 border-0 mt-lg-0 mt-5 text-right">
                 <div class="card-body bg-light pl-0 pr-0 pt-0">
                     <h5 class="card-title titleright">Architecture</h5>
                     <p class="card-text mb-3">Class aptent taciti sociosqu adis litora torquent per conubia nostra per inceptos himenaeos.</p>
-                    <a href="#ab-bot" class="btn scroll">View More</a>
+
                 </div>
                 <img class="card-img-top " src="images/a4.jpg " alt="Card image cap ">
             </div>
@@ -235,25 +234,25 @@
                     <i class="fas icon fa-tags"></i>
                     <h4>10 year Gurantee</h4>
                     <p class="mb-lg-5 mb-4">taciti aptent</p>
-                    <a href="#"><i class="fas fa-long-arrow-alt-right"></i></a>
+
                 </div>
                 <div class="col-lg-3 col-sm-6 mt-sm-0 mt-5 why-grid1">
                     <i class="fas icon fa-puzzle-piece"></i>
                     <h4>Comfortable support</h4>
                     <p class="mb-lg-5 mb-4">taciti aptent</p>
-                    <a href="#"><i class="fas fa-long-arrow-alt-right"></i></a>
+
                 </div>
                 <div class="col-lg-3 col-sm-6 mt-lg-0 mt-5 why-grid1">
                     <i class="fab icon fa-angellist"></i>
                     <h4>Quality In Furniture</h4>
                     <p class="mb-lg-5 mb-4">taciti aptent</p>
-                    <a href="#"><i class="fas fa-long-arrow-alt-right"></i></a>
+
                 </div>
                 <div class="col-lg-3 col-sm-6 mt-lg-0 mt-5 why-grid1">
                     <i class="fas icon fa-dollar-sign"></i>
                     <h4>100% Money Back</h4>
                     <p class="mb-lg-5 mb-4">taciti aptent</p>
-                    <a href="#"><i class="fas fa-long-arrow-alt-right"></i></a>
+
                 </div>
             </div>
         </div>
@@ -266,78 +265,14 @@
     <div class="container py-3">
         <h3 class="heading text-capitalize mb-sm-5 mb-4"> Наши поставщики </h3>
         <div class="row team-grids">
+            @foreach($brands as $brand)
             <div class="col-md-3 col-sm-6 w3_agileits-team1">
-                <img class="img-fluid" src="images/t1.jpg" alt="">
-                <h5 class="mt-3">Elmore</h5>
-                <p>Lorem ipsum</p>
-                <div class="social-icons mt-2">
-                    <ul>
-                        <li>
-                            <a href="#" class="fab fa-facebook-f icon-border facebook"> </a>
-                        </li>
-                        <li class="mx-1">
-                            <a href="#" class="fab fa-twitter  icon-border twitter"> </a>
-                        </li>
-                        <li>
-                            <a href="#" class="fab fa-google-plus-g icon-border googleplus"> </a>
-                        </li>
-                    </ul>
-                </div>
+                <img class="img-fluid" src="{{ $brand->getImage() }}" alt="">
+                <h5 class="mt-3">{{ $brand->title }}</h5>
+                <p>{!! $brand->description !!}</p>
+
             </div>
-            <div class="col-md-3 col-sm-6 mt-sm-0 mt-5 w3_agileits-team1">
-                <img class="img-fluid" src="images/t2.jpg" alt="">
-                <h5 class="mt-3">Blanton</h5>
-                <p>Lorem ipsum</p>
-                <div class="social-icons mt-2">
-                    <ul>
-                        <li>
-                            <a href="#" class="fab fa-facebook-f icon-border facebook"> </a>
-                        </li>
-                        <li class="mx-1">
-                            <a href="#" class="fab fa-twitter  icon-border twitter"> </a>
-                        </li>
-                        <li>
-                            <a href="#" class="fab fa-google-plus-g icon-border googleplus"> </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mt-md-0 mt-5 w3_agileits-team1">
-                <img class="img-fluid" src="images/t3.jpg" alt="">
-                <h5 class="mt-3"> Bass</h5>
-                <p>Lorem ipsum</p>
-                <div class="social-icons mt-2">
-                    <ul>
-                        <li>
-                            <a href="#" class="fab fa-facebook-f icon-border facebook"> </a>
-                        </li>
-                        <li class="mx-1">
-                            <a href="#" class="fab fa-twitter  icon-border twitter"> </a>
-                        </li>
-                        <li>
-                            <a href="#" class="fab fa-google-plus-g icon-border googleplus"> </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mt-md-0 mt-5 w3_agileits-team1">
-                <img class="img-fluid" src="images/t4.jpg" alt="">
-                <h5 class="mt-3"> Glickon</h5>
-                <p>Lorem ipsum</p>
-                <div class="social-icons mt-2">
-                    <ul>
-                        <li>
-                            <a href="#" class="fab fa-facebook-f icon-border facebook"> </a>
-                        </li>
-                        <li class="mx-1">
-                            <a href="#" class="fab fa-twitter  icon-border twitter"> </a>
-                        </li>
-                        <li>
-                            <a href="#" class="fab fa-google-plus-g icon-border googleplus"> </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -348,47 +283,24 @@
     <div class="wthree-different-dot1 py-5">
         <div class="container py-sm-3">
             <!-- Owl-Carousel -->
-            <h3 class="heading text-capitalize mb-sm-5 mb-4">Часто задаваемые вопросы </h3>
+            <h3 class="heading text-capitalize mb-sm-5 mb-4">Последние вопросы </h3>
             <div class="cli-ent">
                 <section class="slider">
                     <div class="flexslider">
                         <ul class="slides">
+                            @foreach($questions as $question)
                             <li>
                                 <div class="item g1">
                                     <div class="agile-dish-caption">
-                                        <img class="lazyOwl" src="images/t1.jpg" alt="" />
-                                        <h5>Michael</h5>
-                                        <h4>Best Quality Furniture</h4>
+                                        <img class="lazyOwl" src="{{ asset('images/noavatar.jpg') }}" alt="" />
+                                        <h5>{{ $question->name }}</h5>
+                                        <h4>{{ $question->message }}</h4>
                                     </div>
-
                                     <div class="clearfix"></div>
-                                    <p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span> Phasellus iaculis sapien in tellus gravida, a placerat lacus elementum. Nulla vitae lacus nec elit mollis pretium. Sed sed nunc lectus. Integer vehicula elit eget dignissim congue. Aliquam sed ultricies tortor. Curabitur ut odio vestibulum consectetur.</p>
+                                    <div class="para-w3-agile"> {!! $question->answer !!}</div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="item g1">
-                                    <div class="agile-dish-caption">
-                                        <img class="lazyOwl" src="{{ asset('images/t2.jpg') }}" alt="" />
-                                        <h5>don libero</h5>
-                                        <h4>Great Place For Great Price</h4>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                    <p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span> Phasellus iaculis sapien in tellus gravida, a placerat lacus elementum. Nulla vitae lacus nec elit mollis pretium. Sed sed nunc lectus. Integer vehicula elit eget dignissim congue. Aliquam sed ultricies tortor. Curabitur ut odio vestibulum consectetur.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item g1">
-                                    <div class="agile-dish-caption">
-                                        <img class="lazyOwl" src="{{ asset('images/t3.jpg') }}" alt="" />
-                                        <h5>Elisa</h5>
-                                        <h4>Lot Of Furniture Design</h4>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-                                    <p class="para-w3-agile"><span class="fa fa-quote-left" aria-hidden="true"></span> Phasellus iaculis sapien in tellus gravida, a placerat lacus elementum. Nulla vitae lacus nec elit mollis pretium. Sed sed nunc lectus. Integer vehicula elit eget dignissim congue. Aliquam sed ultricies tortor. Curabitur ut odio vestibulum consectetur.</p>
-                                </div>
-                            </li>
+                          @endforeach
                         </ul>
                     </div>
                 </section>
@@ -404,24 +316,14 @@
     <div class="container">
         <h3 class="heading text-capitalize mb-sm-5 mb-4"> Последние новости </h3>
         <div class="row news-grids">
+            @foreach($news as $article)
             <div class="col-md-4 newsgrid1 text-center">
-                <img src="images/1.jpg" alt="news image" class="img-fluid" />
-                <h4 class=" mt-4 text-uppercase">Interior Design Tips</h4>
-                <p class="mt-4"> Praesent in congue leo, et rutrum justo. Integer porta nulla eu lorem.</p>
-                <a href="single.html">View Post</a>
+                <img src="{{ $article->getImage() }}" alt="news image" class="img-fluid" />
+                <h4 class=" mt-4 text-uppercase">{{ $article->title }}</h4>
+                <p class="mt-4"> {!! $article->description !!}</p>
+                <a href="{{ route('article.show',$article->slug) }}">View Post</a>
             </div>
-            <div class="col-md-4 mt-md-0 mt-5 newsgrid1 text-center">
-                <img src="images/2.jpg" alt="news image" class="img-fluid" />
-                <h4 class=" mt-4 text-uppercase">Interior Design Tips</h4>
-                <p class="mt-4"> Praesent in congue leo, et rutrum justo. Integer porta nulla eu lorem.</p>
-                <a href="single.html">View Post</a>
-            </div>
-            <div class="col-md-4 mt-md-0 mt-5 newsgrid1 text-center">
-                <img src="images/3.jpg" alt="news image" class="img-fluid" />
-                <h4 class=" mt-4 text-uppercase">Interior Design Tips</h4>
-                <p class="mt-4"> Praesent in congue leo, et rutrum justo. Integer porta nulla eu lorem.</p>
-                <a href="single.html">View Post</a>
-            </div>
+                @endforeach
         </div>
     </div>
 </div>

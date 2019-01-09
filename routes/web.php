@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/i', function () {
-    return view('welcome');
-});
 Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
     Route::get('/','DashboardController@index')->name('admin.index');
     Route::resource('/category','CategoriesController');
@@ -21,6 +18,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
     Route::resource('/product','ProductsController');
     Route::resource('/collection','CollectionsController');
     Route::resource('/question','QuestionsController');
+    Route::resource('/news','NewsController');
 });
 Route::get('/','HomeController@index')->name('index');
 Route::get('/about','HomeController@about')->name('about');
@@ -31,3 +29,4 @@ Route::get('/categories/{slug}','HomeController@show')->name('category.brand');
 Route::get('/collections/{slug}','CollectionsController@show')->name('collections.show');
 Route::get('/collections/{collection}/{product?}','ProductsController@index')->name('products.show');
 Route::post('/comment','QuestionController@store')->name('question.add');
+Route::get('/news/{slug}','NewsController@show')->name('article.show');

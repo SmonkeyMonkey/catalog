@@ -42,65 +42,7 @@
 </section>
 <!-- //about -->
 
-<!-- counter -->
-<div class="services-bottom stats">
-    <div class="wthree-different-dot1 py-5">
-        <div class="container py-lg-5 pb-3">
-            <h3 class="heading text-capitalize mb-5"> Наши продукты </h3>
-            <div class="row wthree-agile-counter">
-                <div class="col-sm-3 col-6 w3_agile_stats_grid-top">
-                    <div class="w3_agile_stats_grid">
-                        <div class="agile_count_grid_left">
-                            <span class="fas fa-bath" aria-hidden="true"></span>
-                        </div>
-                        <div class="agile_count_grid_right">
-                            <p class="counter">324</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                        <h4>Outdoor Furniture</h4>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-6 w3_agile_stats_grid-top">
-                    <div class="w3_agile_stats_grid">
-                        <div class="agile_count_grid_left">
-                            <span class="fab fa-asymmetrik"></span>
-                        </div>
-                        <div class="agile_count_grid_right">
-                            <p class="counter">543</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                        <h4>Sofas and couches</h4>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-6 mt-sm-0 mt-5 w3_agile_stats_grid-top">
-                    <div class="w3_agile_stats_grid">
-                        <div class="agile_count_grid_left">
-                            <span class="fas fa-bed" aria-hidden="true"></span>
-                        </div>
-                        <div class="agile_count_grid_right">
-                            <p class="counter">434</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                        <h4>Chairs and tables</h4>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-6 mt-sm-0 mt-5 w3_agile_stats_grid-top">
-                    <div class="w3_agile_stats_grid">
-                        <div class="agile_count_grid_left">
-                            <span class="fab fa-first-order" aria-hidden="true"></span>
-                        </div>
-                        <div class="agile_count_grid_right">
-                            <p class="counter">234</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                        <h4>Furnitures</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- //counter -->
+
 
 <!-- about  bottom -->
 <section class="wthree-row py-5">
