@@ -1,4 +1,10 @@
 @extends('layout')
+<head>
+    <meta charset="utf-8">
+    <title>{{ $product->meta_title }}</title>
+    <meta name="description" content="{{ $product->meta_description }}">
+    <meta name="keywords" content="{{ $product->meta_keywords }}">
+</head>
 @section('content')
     @if ($errors->any())
         <div class="container">

@@ -26,6 +26,18 @@
                             <label for="exampleInputEmail1">Название</label>
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}" id="exampleInputEmail1" placeholder="">
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Заговок страницы(meta title)</label>
+                            <input type="text" class="form-control" name="meta_title" value="{{ old('meta_title') }}" id="exampleInputEmail1" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ключевые слова(meta keywords)</label>
+                            <textarea name="meta_keywords" id="" cols="30" rows="10" class="form-control">{{ old('meta_keywords') }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Краткое описание(meta description)</label>
+                            <textarea name="meta_description" id="" cols="30" rows="10" class="form-control">{{ old('meta_description') }}</textarea>
+                        </div>
 
                         <div class="form-group">
                             <label for="exampleInputFile">Картинка</label>

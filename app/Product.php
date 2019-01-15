@@ -26,7 +26,8 @@ class Product extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'title',
+                'onUpdate' => true
             ]
         ];
     }
@@ -39,7 +40,7 @@ class Product extends Model
     public function question(){
         return $this->hasMany(Question::class);
     }
-    protected $fillable=['title','price','specifications'];
+    protected $fillable=['title','price','specifications','slug','meta_title','meta_description','meta_keywords'];
     public function uploadImage($image){
         if ($image==null){return;}
         $this->removeImage();
@@ -86,10 +87,10 @@ class Product extends Model
         $this->save();
     }
     public function getBrandID(){
-        return $this->brand->id;
+        return $this->brand_id;
     }
     public function getCollectionID(){
-        return $this->collection->id;
+        return $this->collection_id;
     }
     public function getPrice(){
         if($this->price == null){

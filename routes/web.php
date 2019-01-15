@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware'=> 'auth'],function (){
     Route::get('/','DashboardController@index')->name('admin.index');
     Route::resource('/category','CategoriesController');
     Route::resource('/brand','BrandsController');
@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
     Route::resource('/collection','CollectionsController');
     Route::resource('/question','QuestionsController');
     Route::resource('/news','NewsController');
+    Route::resource('/users','UserController');
 });
 Route::get('/','HomeController@index')->name('index');
 Route::get('/about','HomeController@about')->name('about');
@@ -30,3 +31,10 @@ Route::get('/collections/{slug}','CollectionsController@show')->name('collection
 Route::get('/collections/{collection}/{product?}','ProductsController@index')->name('products.show');
 Route::post('/comment','QuestionController@store')->name('question.add');
 Route::get('/news/{slug}','NewsController@show')->name('article.show');
+
+
+Route::get('/login','Admin\LoginController@loginForm')->middleware('guest')->name('login.form');
+Route::post('/login','Admin\LoginController@login')->middleware('guest')->name('login');
+
+
+Route::get('/logout','Admin\LoginController@logout')->middleware('auth');

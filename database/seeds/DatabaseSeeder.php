@@ -11,10 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        $this->call(CategoryTableSeeder::class);
-        $this->call(BrandsTableSeeder::class);
-        $this->call(CollectionsTableSeeder::class);
-        $this->call(ProductTableSeeder::class);
+        DB::table('users')->insert([
+            'name'      => 'Maksym',
+            'password'  =>  bcrypt('491242'),
+            'email'     => str_random(5).'@gmail.com'
+        ]);
+         $this->call([
+             UsersTableSeeder::class,
+             CategoryTableSeeder::class,
+             BrandsTableSeeder::class,
+             CollectionsTableSeeder::class,
+             ProductTableSeeder::class
+         ]);
     }
 }

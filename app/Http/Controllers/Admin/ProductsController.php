@@ -45,7 +45,6 @@ class ProductsController extends Controller
             'title' => 'required|min:2',
             'image' => 'nullable|image'
         ]);
-
         $product=Product::create($request->all());
         $product->setBrand($request->get('brand_id'));
         $product->setCollection($request->get('collection_id'));
