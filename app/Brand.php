@@ -82,7 +82,6 @@ class Brand extends Model
     }
     public function setCategory($id){
         if($id==null){return;}
-        //$this->category()->sync($id);
         $this->category_id = $id;
         $this->save();
     }

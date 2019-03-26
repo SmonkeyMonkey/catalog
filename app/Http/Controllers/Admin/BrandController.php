@@ -64,7 +64,6 @@ class BrandController extends Controller
     public function edit($id)
     {
         $brand = $this->brandRepository->getEdit($id);
-//        $categories = Category::all()->pluck('title','id');
         $categories = $this->brandRepository->getCategories();
 
         return view('admin.brands.edit',compact('brand','categories'));
