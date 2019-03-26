@@ -11,6 +11,9 @@
             <div class="box">
                 <div class="box-header with-border">
                     @include('admin.errors')
+                    <label for="name">Ответил(а):</label>{{ $question->getUserName() ?? 'Ав' }}<br>
+                    <label for="date">Дата ответа:</label>{{ $question->getRepliedDate() ?? 'Вопрос пока не получил ответ' }}
+                </div>
                 </div>
                 <div class="box-body">
                     {{ Form::open(['route' => ['question.update',$question->id],'method' => 'put']) }}
@@ -33,6 +36,7 @@
                         </div>
                     </div>
 
+                {{ Form::hidden('replied_id',$userID) }}
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

@@ -33,22 +33,14 @@
                         </div>
                         <div class="form-group">
                             <label>Категория</label>
-                            {{ Form::select('category_id',
-                            $categories,
-                              null,
-                              ['class' => 'form-control select2']) }}
+
+                            <select name="category_id" id="category_id" class="form-control select2" required>
+                            @foreach ($categories as $item)
+                                <option value="{{ $item->id }}">{{ $item->id_title }}</option>
+                            @endforeach
+                            </select>
                         </div>
-                        {{--<div class="form-group">--}}
-                            {{--<label>Теги</label>{{ Form::select('collections[]',--}}
-                            {{--$collections,--}}
-                              {{--null,--}}
-                              {{--['class' => 'form-control select2','multiple'=>'multiple','data-placeholder'=>'Коллекции производителя:']) }}--}}
 
-                        {{--</div>--}}
-                        <!-- Date -->
-
-
-                        <!-- checkbox -->
                         <div class="form-group">
                             <label>
                                 <input type="checkbox" class="minimal" name="is_published">

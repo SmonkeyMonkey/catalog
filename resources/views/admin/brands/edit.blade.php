@@ -33,21 +33,15 @@
                             <input type="file" id="exampleInputFile" name="image">
                         </div>
                         <div class="form-group">
-                            <label>Категория</label>
-                            {{ Form::select('category_id',
-                             $categories,
-                           $brand->getCategoryID(),
-                           ['class' => 'form-control select2']) }}
+                            <label for="title">Категория</label>
+                            <select name="category_id" id="category_id" class="form-control select2" required>
+                            @foreach ($categories as $item)
+                                <option value="{{ $item->id }}" @if($brand->getCategoryID() == $item->id) selected @endif >{{ $item->id_title }}</option>
+                                @endforeach
+                                </select>
+
                         </div>
-                        {{--<div class="form-group">--}}
-                            {{--<label>Теги</label>--}}
-                            {{--{{ Form::select('tags[]',--}}
-                            {{--$tags,--}}
-                              {{--$selectedTags,--}}
-                              {{--['class' => 'form-control select2','multiple'=>'multiple','data-placeholder'=>'Выберите теги']) }}--}}
-                        {{--</div>--}}
-                        <!-- Date -->
-                        <!-- checkbox -->
+
                         <div class="form-group">
                             <label>
                                 {{ Form::checkbox('is_published', 1, $brand->is_published,['class' => 'minimal']) }}

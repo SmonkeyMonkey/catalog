@@ -60,10 +60,10 @@
                                 {{ Form::close() }}
                             </td>
                         </tr>
-                    @endforeach
 
-                    </tfoot>
+                    @endforeach
                 </table>
+                {{ $categories->links() }}
             </div>
             <!-- /.box-body -->
         </div>

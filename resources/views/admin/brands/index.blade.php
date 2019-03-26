@@ -45,10 +45,9 @@
                             <tr>
                                 <td>{{ $brand->id }}</td>
                                 <td>{{ $brand->title }}</td>
-                                <td>{{ $brand->description }}</td>
-                                <td>{{ $brand->about }}</td>
-                                <td>{{$brand->getCategoryTitle()}}</td>
-                                {{--<td>{{$brand->getTagsTitle()}}</td>--}}
+                                <td>{!! $brand->description !!}</td>
+                                <td>{!! $brand->about !!}</td>
+                                <td>{{ $brand->getCategoryTitle()}}</td>
 
                                 <td>
                                     <img src="{{ $brand->getImage() }}" alt="" width="100">
@@ -65,8 +64,9 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </tfoot>
+
                     </table>
+                    {{ $brands->links() }}
                 </div>
                 <!-- /.box-body -->
             </div>

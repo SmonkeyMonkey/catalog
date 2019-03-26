@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\NewsRequest;
 use App\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news=News::all();
+        $news=News::paginate(10);
         return view('admin.news.index',compact('news'));
     }
 
@@ -35,14 +36,9 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
-        $this->validate($request,[
-            'title' => 'required|min:4',
-            'image' => 'image|nullable',
-            'text'  => 'required|min:5',
-            'description' => 'required|min:3'
-        ]);
+
         $news=News::create($request->all());
         $news->uploadImage($request->file('image'));
         return redirect()->route('news.index')->with('create','Ваша новость успешно добавлена');
@@ -68,14 +64,8 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NewsRequest $request, $id)
     {
-        $this->validate($request,[
-            'title' => 'required|min:4',
-            'image' => 'image|nullable',
-            'text'  => 'required|min:5',
-            'description' => 'required|min:3'
-        ]);
         $news=News::findOrFail($id);
         $news->update($request->all());
         $news->uploadImage($request->file('image'));

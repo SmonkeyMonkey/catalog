@@ -17,8 +17,18 @@
         <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Редактируем товар товар</h3>
-                    @include('admin.errors')
+                    <div class="col-12 col-md-8">
+                        @include('admin.errors')
+                        <label for="name">Created by:</label>{{ $product->getUserName() }}<br>
+                        <label for="date">Date:</label>{{ $product->getCreatedDate() }}
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                            <label for="name">Updated by:</label>{{ $product->getUpdatedUserName() }}<br>
+                            <label for="date">Date:</label>{{ $product->getUpdatedDate() }}
+                        </div>
+
+
                 </div>
                 <div class="box-body">
                     <div class="col-md-6">
@@ -35,15 +45,15 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Заговок страницы(meta title)</label>
-                            <input type="text" class="form-control" name="meta_title" value="{{ old('meta_title') }}" id="exampleInputEmail1" placeholder="">
+                            <input type="text" class="form-control" name="meta_title" value="{{ $product->meta_title }}" id="exampleInputEmail1" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ключевые слова(meta keywords)</label>
-                            <textarea name="meta_keywords" id="" cols="30" rows="10" class="form-control">{{ old('meta_keywords') }}</textarea>
+                            <textarea name="meta_keywords" id="" cols="30" rows="10" class="form-control">{{ $product->meta_keywords }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Краткое описание(meta description)</label>
-                            <textarea name="meta_description" id="" cols="30" rows="10" class="form-control">{{ old('meta_description') }}</textarea>
+                            <textarea name="meta_description" id="" cols="30" rows="10" class="form-control">{{ $product->meta_description }}</textarea>
                         </div>
                         <div class="form-group">
                             <img src="{{ $product->getImage() }}" alt="" class="img-responsive" width="200">
@@ -83,7 +93,9 @@
                     <button class="btn btn-success pull-right">Редактировать</button>
                 </div>
                 <!-- /.box-footer-->
+                {{ Form::hidden('updated_by',$userID) }}
             </div>
+
             <!-- /.box -->
             {{ Form::close() }}
         </section>

@@ -26,6 +26,10 @@ class CreateProductsTable extends Migration
             $table->decimal('price',10,2)->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
+            $table->unsignedInteger('created_by');
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('updated_by')->references('id')->on('users');
         });
     }
 

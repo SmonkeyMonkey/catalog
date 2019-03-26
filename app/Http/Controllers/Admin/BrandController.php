@@ -4,11 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Brand;
 use App\Category;
+use App\Http\Repositories\BrandRepository;
+use App\Http\Requests\BrandRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class BrandsController extends Controller
+class BrandController extends Controller
 {
+    private $brandRepository;
+    public function __construct()
+    {
+        $this->brandRepository = app(BrandRepository::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +24,8 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        $brands=Brand::all();
+        $brands = $this->brandRepository->getAllWithPaginate(10);
+
         return view('admin.brands.index',compact('brands'));
     }
 
@@ -27,7 +36,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        $categories=Category::pluck('title','id')->all();
+        $categories = $this->brandRepository->getCategories();
         return view('admin.brands.create',compact('categories'));
     }
 
@@ -37,14 +46,8 @@ class BrandsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrandRequest $request)
     {
-        $this->validate($request,[
-            'title'         => 'required|min:2',
-            'description'   => 'required|min:3',
-            'about'         => 'required|min:5',
-            'image'         => 'nullable|image'
-        ]);
         $brand=Brand::create($request->all());
         $brand->uploadImage($request->file('image'));
         $brand->toggleStatus($request->get('is_published'));
@@ -60,8 +63,10 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        $brand=Brand::find($id);
-        $categories=Category::pluck('title','id');
+        $brand = $this->brandRepository->getEdit($id);
+//        $categories = Category::all()->pluck('title','id');
+        $categories = $this->brandRepository->getCategories();
+
         return view('admin.brands.edit',compact('brand','categories'));
     }
 
@@ -72,14 +77,9 @@ class BrandsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BrandRequest $request, $id)
     {
-        $this->validate($request,[
-            'title'         => 'required|min:2',
-            'description'   => 'required|min:3',
-            'about'         => 'required|min:5',
-            'image'         => 'nullable|image'
-        ]);
+
         $brand=Brand::findOrFail($id);
         $brand->update($request->all());
         $brand->uploadImage($request->file('image'));

@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\QuestionRequest;
 use App\Question;
+use App\Http\Repositories\QuestionRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class QuestionsController extends Controller
+class QuestionController extends Controller
 {
+    private $questionRepository;
+    public function __construct()
+    {
+        $this->questionRepository = app(QuestionRepository::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $questions=Question::all();
+        $questions=Question::paginate(10);
         return view('admin.questions.index',compact('questions'));
     }
 
@@ -27,8 +36,10 @@ class QuestionsController extends Controller
      */
     public function edit($id)
     {
-        $question=Question::findOrFail($id);
-        return view('admin.questions.edit',compact('question'));
+//        $question=Question::findOrFail($id);
+        $question = $this->questionRepository->getEdit($id);
+        $userID = Question::getRepliedID();
+        return view('admin.questions.edit',compact('question','userID'));
     }
 
     /**
@@ -38,11 +49,8 @@ class QuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionRequest $request, $id)
     {
-        $this->validate($request,[
-            'answer' => 'required|min:1'
-        ]);
         $question=Question::findOrFail($id);
         $question->update($request->all());
         $question->setActive();

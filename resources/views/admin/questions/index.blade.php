@@ -52,8 +52,8 @@
                                 </td>
                             </tr>
                         @endforeach
-
                     </table>
+                    {{ $questions->links() }}
                 </div>
                 <!-- /.box-body -->
             </div>

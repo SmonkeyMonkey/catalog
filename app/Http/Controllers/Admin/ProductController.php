@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Brand;
 use App\Collection;
+use App\Http\Requests\ProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products=Product::all();
+        $products=Product::paginate(15);
         return view('admin.product.index',compact('products'));
     }
 
@@ -30,7 +31,8 @@ class ProductsController extends Controller
     {
         $brands=Brand::pluck('title','id')->all();
         $collections=Collection::pluck('title','id')->all();
-        return view('admin.product.create',compact('brands','collections'));
+        $userID = Product::getUserID();
+        return view('admin.product.create',compact('brands','collections','userID'));
     }
 
     /**
@@ -39,12 +41,8 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $this->validate($request,[
-            'title' => 'required|min:2',
-            'image' => 'nullable|image'
-        ]);
         $product=Product::create($request->all());
         $product->setBrand($request->get('brand_id'));
         $product->setCollection($request->get('collection_id'));
@@ -63,8 +61,9 @@ class ProductsController extends Controller
     {
         $product=Product::findOrFail($id);
         $brands=Brand::pluck('title','id')->all();
+        $userID= Product::getUserID();
         $collections=Collection::pluck('title','id')->all();
-        return view('admin.product.edit',compact('product','brands','collections'));
+        return view('admin.product.edit',compact('product','brands','collections','userID'));
     }
 
     /**
@@ -74,12 +73,8 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        $this->validate($request,[
-            'title' => 'required',
-            'image' => 'nullable|image'
-        ]);
         $product=Product::findOrFail($id);
         $product->update($request->all());
         $product->uploadImage($request->file('image'));

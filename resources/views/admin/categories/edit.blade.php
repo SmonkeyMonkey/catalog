@@ -4,7 +4,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Добавить категорию
+                Редактирование категории
             </h1>
         </section>
 
@@ -13,26 +13,38 @@
 
             <!-- Default box -->
             <div class="box">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <label for="name">Created by:</label>{{ $category->getUserName() }}<br>
+                        <label for="date">Date:</label>{{ $category->getCreatedDate() }}
+                        </div>
+                    <div class="col-6 col-md-4">
+                        <label for="name">Updated by:</label>{{ $category->getUpdatedUserName() }}<br>
+                        <label for="date">Date:</label>{{ $category->getUpdatedDate() }}
+                    </div>
+
+                </div>
                 <div class="box-header with-border">
-                    <h3 class="box-title">Изменяем название категории</h3>
+
+
                     @include('admin.errors')
                 </div>
                 <div class="box-body">
-                    {{ Form::open(['route' => ['category.update',$category->id],'method' => 'put']) }}
+                    {{ Form::open(['route' => ['category.update',$category->id],'method' => 'put','files' => true]) }}
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Название</label>
                             <input type="text" class="form-control" name="title" id="exampleInputEmail1" placeholder="" value="{{ $category->title }}">
                         </div>
                     </div>
-                    <div class="col-md-6">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Изображение</label>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Изображение(jpeg, png, bmp, gif, or svg)</label>
                         <img src="{{ $category->getImage() }}" alt="" class="img-responsive" width="200">
-                        <hr>
                         <input type="file" id="exampleInputFile" name="image">
-                    </div></div>
-                    <div class="col-md-12">
+                    </div>
+                    <div class="form-group">
                         <label for="">Slug</label>
                         <input class="form-control" type="text" name="slug" placeholder="Автоматическая генерация" value="{{ $category->slug ?? ""}}" readonly="">
                         <div class="form-group">
@@ -41,6 +53,7 @@
                         </div>
                     </div>
                 </div>
+                    {{ Form::hidden('updated_by',$userID) }}
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button class="btn btn-default">Назад</button>
@@ -50,6 +63,7 @@
                 {{ Form::close() }}
             </div>
             <!-- /.box -->
+            </div>
 
         </section>
         <!-- /.content -->

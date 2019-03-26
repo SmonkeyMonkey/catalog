@@ -6,7 +6,7 @@ use App\Collection;
 use App\Product;
 use Illuminate\Http\Request;
 
-class CollectionsController extends Controller
+class CollectionController extends Controller
 {
     public function show($slug){
         $collection=Collection::where('slug',$slug)->firstOrFail();

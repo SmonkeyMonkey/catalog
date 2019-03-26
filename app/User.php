@@ -19,6 +19,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function categories(){
+        return $this->hasMany('App\Category');
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -36,6 +39,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     public static function add($fields){
         $user= new static;
         $user->fill($fields);

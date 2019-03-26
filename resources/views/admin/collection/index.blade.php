@@ -56,8 +56,8 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </tfoot>
                     </table>
+                    {{ $collections->links() }}
                 </div>
                 <!-- /.box-body -->
             </div>

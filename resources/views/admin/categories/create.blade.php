@@ -5,7 +5,6 @@
         <section class="content-header">
             <h1>
                 Добавить категорию
-                <small>приятные слова..</small>
             </h1>
         </section>
 
@@ -22,7 +21,6 @@
         'route' => 'category.store',
         'files' => true,
         ]) }}
-
                 <div class="box-header with-border">
                     <h3 class="box-title">Добавляем категорию</h3>
                     @include('admin.errors')
@@ -50,6 +48,7 @@
                 <div class="box-footer">
                     <button class="btn btn-success pull-right">Добавить</button>
                 </div>
+                {{ Form::hidden('created_by',$userID) }}
                 <!-- /.box-footer-->
                 {!! Form::close() !!}
             </div>

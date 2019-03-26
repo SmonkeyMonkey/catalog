@@ -63,6 +63,7 @@
                         @endforeach
 
                     </table>
+                    {{ $news->links() }}
                 </div>
                 <!-- /.box-body -->
             </div>

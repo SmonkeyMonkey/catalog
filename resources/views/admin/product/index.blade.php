@@ -37,6 +37,7 @@
                             <th>Коллекция</th>
                             <th>Характеристики</th>
                             <th>Стоимость</th>
+                            <th>Изображение</th>
                             <th>Действия</th>
                         </tr>
                         </thead>
@@ -64,8 +65,8 @@
                                 </td>
                             </tr>
                         @endforeach
-                        </tfoot>
                     </table>
+                    {{ $products->links() }}
                 </div>
                 <!-- /.box-body -->
             </div>

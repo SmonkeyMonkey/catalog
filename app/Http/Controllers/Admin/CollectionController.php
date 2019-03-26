@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Collection;
+use App\Http\Requests\CollectionRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Brand;
 
-class CollectionsController extends Controller
+class CollectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class CollectionsController extends Controller
      */
     public function index()
     {
-        $collections=Collection::all();
+        $collections=Collection::paginate(10);
         return view('admin.collection.index',compact('collections'));
     }
 
@@ -38,11 +39,8 @@ class CollectionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CollectionRequest $request)
     {
-        $this->validate($request,[
-            'title' => 'required',
-        ]);
         $collection=Collection::create($request->all());
         $collection->setBrand($request->get('brand_id'));
         return redirect()->route('collection.index')->with('create','Коллекция успешно добавлена');
@@ -68,10 +66,8 @@ class CollectionsController extends Controller
      * @param  \App\Collection  $collection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CollectionRequest $request, $id)
     {
-        $this->validate($request,
-            ['title'=> 'required|min:2']);
         $collection=Collection::findOrFail($id);
         $collection->setBrand($request->get('brand_id'));
         $collection->update($request->all());

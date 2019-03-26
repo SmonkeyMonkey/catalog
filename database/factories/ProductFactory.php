@@ -9,6 +9,7 @@ $factory->define(App\Product::class, function (Faker $faker) {
         'collection_id'  => rand(1,15),
         'specifications' => $faker->realText($maxNbChars =50),
         'price'          => $faker->numberBetween($min=5,$max=10000),
+        'created_by'    => 1
 //        'image'          => $faker->imageUrl($width=600, $height=400, 'animals', true, 'Faker', true),
     ];
 });

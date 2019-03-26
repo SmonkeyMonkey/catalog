@@ -39,10 +39,11 @@
                         <li class="nav-item">
                             <a class="{{ request()->is('contacts') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('contacts') }}">Контакты</a>
                         </li>
-
+                        @auth()
                         <li class="nav-item nav-fill">
                             <a class="nav-link" href="{{ route('admin.index') }}">админ</a>
                         </li>
+                            @endauth
                     </ul>
                 </div>
 

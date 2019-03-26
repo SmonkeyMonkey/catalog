@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Brand;
@@ -21,6 +23,7 @@ use App\Collection;
  */
 class Product extends Model
 {
+    protected $fillable=['title','price','specifications','slug','meta_title','meta_description','meta_keywords','created_by','updated_by'];
     use Sluggable;
     public function sluggable()
     {
@@ -34,13 +37,18 @@ class Product extends Model
     public function brand(){
         return $this->belongsTo(Brand::class,'brand_id');
     }
+    public function creator(){
+        return $this->belongsTo(User::class,'created_by');
+    }
+    public function updated_user(){
+        return $this->belongsTo(User::class,'updated_by');
+    }
     public function collection(){
         return $this->belongsTo(Collection::class,'collection_id');
     }
     public function question(){
         return $this->hasMany(Question::class);
     }
-    protected $fillable=['title','price','specifications','slug','meta_title','meta_description','meta_keywords'];
     public function uploadImage($image){
         if ($image==null){return;}
         $this->removeImage();
@@ -82,12 +90,12 @@ class Product extends Model
         $this->brand_id = $id;
         $this->save();
     }
+    public function getBrandID(){
+        return $this->brand_id;
+    }
     public function setCollection($id){
         $this->collection_id = $id;
         $this->save();
-    }
-    public function getBrandID(){
-        return $this->brand_id;
     }
     public function getCollectionID(){
         return $this->collection_id;
@@ -103,5 +111,25 @@ class Product extends Model
     }
     public function getQuestion(){
         return $this->question()->where('is_active',1)->get();
+    }
+
+    public static function getUserID(){
+        return Auth::user()->getAuthIdentifier();
+    }
+    public function getUserName(){
+        return $this->creator->name;
+    }
+    public function getUpdatedUserName(){
+        if($this->updated_user == null){
+            return 'Продукт еще не был обновлен';
+        }
+            return $this->updated_user->name;
+    }
+    public function getCreatedDate()
+    {
+        return $date = Carbon::createFromFormat('Y-m-d H:i:s',$this->created_at)->diffForHumans();
+    }
+    public function getUpdatedDate(){
+        return  $date = Carbon::createFromFormat('Y-m-d H:i:s',$this->updated_at)->diffForHumans();
     }
 }

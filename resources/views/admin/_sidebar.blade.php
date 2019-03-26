@@ -1,5 +1,5 @@
 <ul class="sidebar-menu">
-    <li class="header">MAIN NAVIGATION</li>
+    <li class="header">Здравствуйте,{{ Auth::user()->name }}</li>
     <li class="treeview">
         <a href="#">
             <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
@@ -19,5 +19,4 @@
     </li>
     <li><a href="{{ route('news.index') }}"><i class="fa fa-newspaper-o"></i> <span>Новости</span></a></li>
     <li><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Пользователи</span></a></li>
-
 </ul>

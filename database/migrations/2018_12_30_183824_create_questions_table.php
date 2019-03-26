@@ -20,7 +20,9 @@ class CreateQuestionsTable extends Migration
             $table->text('answer')->nullable();
             $table->integer('is_active')->nullable()->default(0);
             $table->integer('product_id');
+            $table->unsignedInteger('replied_id')->nullable();
             $table->timestamps();
+            $table->foreign('replied_id')->references('id')->on('users');
         });
     }
 

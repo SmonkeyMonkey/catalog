@@ -13,13 +13,13 @@
 
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware'=> 'auth'],function (){
     Route::get('/','DashboardController@index')->name('admin.index');
-    Route::resource('/category','CategoriesController');
-    Route::resource('/brand','BrandsController');
-    Route::resource('/product','ProductsController');
-    Route::resource('/collection','CollectionsController');
-    Route::resource('/question','QuestionsController');
-    Route::resource('/news','NewsController');
-    Route::resource('/users','UserController');
+    Route::resource('/category','CategoryController');
+    Route::resource('/brand','BrandController')->except('show');
+    Route::resource('/product','ProductController')->except('show');
+    Route::resource('/collection','CollectionController')->except('show');
+    Route::resource('/question','QuestionController')->except('show','store','create');
+    Route::resource('/news','NewsController')->except('show');
+    Route::resource('/users','UserController')->except('show');
 });
 Route::get('/','HomeController@index')->name('index');
 Route::get('/about','HomeController@about')->name('about');
@@ -27,8 +27,8 @@ Route::get('/services','HomeController@services')->name('services');
 Route::get('/objects','HomeController@objects')->name('objects');
 Route::get('/contacts','HomeController@contacts')->name('contacts');
 Route::get('/categories/{slug}','HomeController@show')->name('category.brand');
-Route::get('/collections/{slug}','CollectionsController@show')->name('collections.show');
-Route::get('/collections/{collection}/{product?}','ProductsController@index')->name('products.show');
+Route::get('/collections/{slug}','CollectionController@show')->name('collections.show');
+Route::get('/collections/{collection}/{product?}','ProductController@index')->name('products.show');
 Route::post('/comment','QuestionController@store')->name('question.add');
 Route::get('/news/{slug}','NewsController@show')->name('article.show');
 

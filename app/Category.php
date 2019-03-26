@@ -2,8 +2,11 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * App\Category
@@ -22,14 +25,21 @@ class Category extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'title',
+                'onUpdate' => true
             ]
         ];
     }
     public function brands(){
         return $this->hasMany(Brand::class);
     }
-    protected $fillable=['title','description'];
+    public function creator(){
+        return $this->belongsTo('App\User','created_by');
+    }
+    public function updated_user(){
+        return $this->belongsTo('App\User','updated_by');
+    }
+    protected $fillable=['title','description','created_by','updated_by'];
     public function uploadImage($image){
         if ($image==null){return;}
         $this->removeImage();
@@ -44,6 +54,9 @@ class Category extends Model
             Storage::delete('uploads/categories/' . $this->image);
         }
     }
+    public function created_by($id){
+        $this->created_by = $id;
+    }
     public function remove()
     {
         $this->removeImage();
@@ -54,6 +67,27 @@ class Category extends Model
             return false;
         }
         return '/uploads/categories/'.$this->image;
+    }
+    public static function getUserID(){
+        return Auth::user()->getAuthIdentifier();
+    }
+    public function getUserName(){
+        return $this->creator->name;
+    }
+    public function getUpdatedUserName(){
+        if($this->updated_user == null){
+            return 'Категория еще не была обновлена';
+        }
+        return $this->updated_user->name;
+    }
+    public function getCreatedDate()
+    {
+        $date = Carbon::createFromFormat('Y-m-d H:i:s',$this->created_at)->diffForHumans();
+        return $date;
+    }
+    public function getUpdatedDate(){
+        $date = Carbon::createFromFormat('Y-m-d H:i:s',$this->updated_at)->diffForHumans();
+        return $date;
     }
 
 }

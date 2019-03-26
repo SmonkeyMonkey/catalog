@@ -17,7 +17,7 @@
         <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Добавляем товар</h3>
+
                     @include('admin.errors')
                 </div>
                 <div class="box-body">
@@ -76,6 +76,7 @@
                     <button class="btn btn-success pull-right">Добавить</button>
                 </div>
                 <!-- /.box-footer-->
+                {{ Form::hidden('created_by',$userID) }}
             </div>
             <!-- /.box -->
             {{ Form::close() }}

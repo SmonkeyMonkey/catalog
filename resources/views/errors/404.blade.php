@@ -5,16 +5,16 @@
 <!-- Error page -->
 <section class="error py-5">
     <div class="container py-3">
-        <h3 class="heading text-capitalize mb-sm-5 mb-4"> Error Page </h3>
+        <h3 class="heading text-capitalize mb-sm-5 mb-4"> Ошибка </h3>
         <div class="error_content">
             <div class="content_left">
                 <h2 class="font-weight-bold">404</h2>
-                <h5 class="text-capitalize">looks like that page doesn't exist</h5>
-                <p class="mt-3">Quisque sit amet odio sit amet nulla finibus commodo. Sed dictum accumsan vestibulum. Mauris ac sem quis augue blandit venenatis non eu est. </p>
+                <h5 class="text-capitalize">Запрашиваемая вами страница не существует либо временно недоступна </h5>
+                <p class="mt-3">Пожалуйста,обратитесь к администратору страницы если вы уверенны что ошибка недействительна </p>
                 <div class="back_to_index mt-4">
-                    <a href="{{ route('index') }}" class="text-capitalize">Back to home</a>
+                    <a href="{{ route('index') }}" class="text-capitalize">Вернуться на главную</a>
                 </div>
-                <p class="text-capitalize my-3">Please check the URL and try again</p>
+                <p class="text-capitalize my-3">Проверьте правильно ли указан URL страницы</p>
 
             </div>
         </div>
@@ -44,14 +44,14 @@
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function() {
-        /*
+
             var defaults = {
             containerID: 'toTop', // fading element id
             containerHoverID: 'toTopHover', // fading element hover id
             scrollSpeed: 1200,
             easingType: 'linear'
             };
-        */
+
 
         $().UItoTop({ easingType: 'easeOutQuart' });
 

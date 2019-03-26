@@ -7,7 +7,7 @@ use App\Product;
 use App\Question;
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
     public function index($collection,$product){
         $collection=Collection::where('slug',$collection)->firstOrFail();
