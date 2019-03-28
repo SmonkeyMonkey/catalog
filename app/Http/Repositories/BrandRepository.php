@@ -3,6 +3,7 @@
 namespace App\Http\Repositories;
 
 use App\Brand as Model;
+use App\Brand;
 use Illuminate\Support\Facades\DB;
 
 class BrandRepository extends CoreRepository
@@ -15,7 +16,10 @@ class BrandRepository extends CoreRepository
     public function getAllWithPaginate($paginate = null)
     {
         $colums = ['id', 'title', 'description', 'about', 'category_id', 'image'];
-        $result = $this->startConditions()->select($colums)->paginate($paginate);
+        $result = $this->startConditions()
+            ->select($colums)
+            ->with('category:id,title') // lazy load. через : выбираем нужные поля,по умолчанию достается весь объект
+            ->paginate($paginate);
         return $result;
     }
 
@@ -25,13 +29,12 @@ class BrandRepository extends CoreRepository
             'id',
             'CONCAT (id, ". ",  title) as id_title'
         ]);
+
         $result = DB::table('categories')->selectRaw($fields)->get();
 
         return $result;
-//        $result = $this->startConditions()->with('collections')->all();
-//        return $result;
-    }
 
+    }
     public function getEdit($id)
     {
         return $this->startConditions()->find($id);

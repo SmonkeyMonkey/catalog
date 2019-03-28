@@ -47,9 +47,9 @@
                         <tr>
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->title }}</td>
-                            <td>{{ $category->description }}</td>
+                            <td>{!! $category->description !!}</td>
                             <td>
-                            <img src="{{ $category->getImage() }}" alt="" width="100">
+                            <img src="{{ asset('/uploads/categories/' . $category->image) }}" alt="" width="100">
                             </td>
                             <td>
                                 <a href="{{ route('category.edit',$category->id) }}" class="fa fa-pencil"></a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Brand;
 use App\Collection;
+use App\Http\Repositories\ProductRepository;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
@@ -11,6 +12,12 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
+    private $productRepository;
+    public function __construct()
+    {
+        $this->productRepository = app(ProductRepository::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +25,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::paginate(15);
+        $products= $this->productRepository->getAllWithPaginate(15);
         return view('admin.product.index',compact('products'));
     }
 
@@ -29,8 +36,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brands=Brand::pluck('title','id')->all();
-        $collections=Collection::pluck('title','id')->all();
+        $brands= $this->productRepository->getBrands();
+        $collections= $this->productRepository->getCollections();
         $userID = Product::getUserID();
         return view('admin.product.create',compact('brands','collections','userID'));
     }

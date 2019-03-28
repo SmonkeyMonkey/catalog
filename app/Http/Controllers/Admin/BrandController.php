@@ -25,7 +25,6 @@ class BrandController extends Controller
     public function index()
     {
         $brands = $this->brandRepository->getAllWithPaginate(10);
-
         return view('admin.brands.index',compact('brands'));
     }
 
@@ -65,7 +64,6 @@ class BrandController extends Controller
     {
         $brand = $this->brandRepository->getEdit($id);
         $categories = $this->brandRepository->getCategories();
-
         return view('admin.brands.edit',compact('brand','categories'));
     }
 
@@ -78,7 +76,6 @@ class BrandController extends Controller
      */
     public function update(BrandRequest $request, $id)
     {
-
         $brand=Brand::findOrFail($id);
         $brand->update($request->all());
         $brand->uploadImage($request->file('image'));

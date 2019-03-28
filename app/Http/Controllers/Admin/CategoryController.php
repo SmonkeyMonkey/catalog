@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Http\Repositories\CategoryRepository;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,12 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+    private $categoryRepository;
+    public function __construct()
+    {
+        $this->categoryRepository = app(CategoryRepository::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +24,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+        $categories = $this->categoryRepository->getAllWithPaginate(10);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -35,7 +42,8 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param CategoryRequest $request
+     * @param Category $category
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryRequest $request, Category $category)
@@ -53,7 +61,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
+        $category = $this->categoryRepository->getEdit($id);
         $userID = Category::getUserID();
         return view('admin.categories.edit', compact('category','userID'));
     }

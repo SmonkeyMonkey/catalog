@@ -51,17 +51,19 @@
                         </div>
                         <div class="form-group">
                             <label>Производитель</label>
-                            {{ Form::select('brand_id',
-                            $brands,
-                              null,
-                              ['class' => 'form-control select2']) }}
+                            <select name="brand_id" id="brand_id" class="form-control select2" required>
+                                @foreach ($brands as $item)
+                                    <option value="{{ $item->id }}">{{ $item->id_title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Коллекция</label>
-                            {{ Form::select('collection_id',
-                            $collections,
-                              null,
-                              ['class' => 'form-control select2']) }}
+                            <select name="collection_id" id="collection_id" class="form-control select2" required>
+                                @foreach ($collections as $item)
+                                    <option value="{{ $item->id }}">{{ $item->id_title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">

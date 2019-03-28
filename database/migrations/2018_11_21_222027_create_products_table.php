@@ -16,8 +16,8 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->unique();;
-            $table->integer('brand_id')->nullable();
-            $table->integer('collection_id')->nullable();
+            $table->integer('brand_id')->unsigned()->nullable();
+            $table->integer('collection_id')->unsigned()->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
@@ -28,6 +28,11 @@ class CreateProductsTable extends Migration
             $table->timestamps();
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('updated_by')->nullable();
+
+        });
+        Schema::table('products',function (Blueprint $table){
+            $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('collection_id')->references('id')->on('collections');
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('updated_by')->references('id')->on('users');
         });

@@ -19,13 +19,13 @@
                 <div class="box-header with-border">
                     <div class="col-12 col-md-8">
                         @include('admin.errors')
-                        <label for="name">Created by:</label>{{ $product->getUserName() }}<br>
-                        <label for="date">Date:</label>{{ $product->getCreatedDate() }}
+                        <label for="name">Created by:</label>{{ $product->creator->name }}<br>
+                        <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->created_at)->diffForHumans() }}
                         </div>
 
                         <div class="col-6 col-md-4">
-                            <label for="name">Updated by:</label>{{ $product->getUpdatedUserName() }}<br>
-                            <label for="date">Date:</label>{{ $product->getUpdatedDate() }}
+                            <label for="name">Updated by:</label>{{ $product->updated_user->name ?? ''}}<br>
+                            <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->updated_at)->diffForHumans() ?? ''}}
                         </div>
 
 

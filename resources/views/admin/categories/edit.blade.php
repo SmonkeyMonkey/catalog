@@ -15,12 +15,12 @@
             <div class="box">
                 <div class="row">
                     <div class="col-12 col-md-8">
-                        <label for="name">Created by:</label>{{ $category->getUserName() }}<br>
-                        <label for="date">Date:</label>{{ $category->getCreatedDate() }}
+                        <label for="name">Created by:</label>{{ $category->creator->name }}<br>
+                        <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $category->created_at)->diffForHumans() }}
                         </div>
                     <div class="col-6 col-md-4">
-                        <label for="name">Updated by:</label>{{ $category->getUpdatedUserName() }}<br>
-                        <label for="date">Date:</label>{{ $category->getUpdatedDate() }}
+                        <label for="name">Updated by:</label>{{ $category->updated_user->name }}<br>
+                        <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $category->updated_at)->diffForHumans() ?? '' }}
                     </div>
 
                 </div>
@@ -41,7 +41,7 @@
                     <div class="form-group">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Изображение(jpeg, png, bmp, gif, or svg)</label>
-                        <img src="{{ $category->getImage() }}" alt="" class="img-responsive" width="200">
+                        <img src="{{ asset('/uploads/categories/' . $category->image) }}" alt="" class="img-responsive" width="200">
                         <input type="file" id="exampleInputFile" name="image">
                     </div>
                     <div class="form-group">

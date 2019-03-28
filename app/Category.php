@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Storage;
 class Category extends Model
 {
     use Sluggable;
+    protected $fillable = ['title', 'description', 'created_by', 'updated_by'];
+
     public function sluggable()
     {
         return [
@@ -30,64 +32,58 @@ class Category extends Model
             ]
         ];
     }
-    public function brands(){
+
+    public function brands()
+    {
         return $this->hasMany(Brand::class);
     }
-    public function creator(){
-        return $this->belongsTo('App\User','created_by');
+
+    public function creator()
+    {
+        return $this->belongsTo('App\User', 'created_by');
     }
-    public function updated_user(){
-        return $this->belongsTo('App\User','updated_by');
+
+    public function updated_user()
+    {
+        return $this->belongsTo('App\User', 'updated_by');
     }
-    protected $fillable=['title','description','created_by','updated_by'];
-    public function uploadImage($image){
-        if ($image==null){return;}
+
+    public function uploadImage($image)
+    {
+        if ($image == null) {
+            return;
+        }
         $this->removeImage();
-        $filename=str_random(10).'.'.$image->extension();
-        $image->storeAs('uploads/categories',$filename);
-        $this->image=$filename;
+        $filename = str_random(10) . '.' . $image->extension();
+        $image->storeAs('uploads/categories', $filename);
+        $this->image = $filename;
         $this->save();
     }
-    public function removeImage(){
-        if($this->image != null)
-        {
+
+    public function removeImage()
+    {
+        if ($this->image != null) {
             Storage::delete('uploads/categories/' . $this->image);
         }
     }
-    public function created_by($id){
+
+    public function created_by($id)
+    {
         $this->created_by = $id;
     }
+
     public function remove()
     {
         $this->removeImage();
         $this->delete();
     }
-    public function getImage(){
-        if($this->image == null){
-            return false;
-        }
-        return '/uploads/categories/'.$this->image;
-    }
-    public static function getUserID(){
+
+
+    public static function getUserID()
+    {
         return Auth::user()->getAuthIdentifier();
     }
-    public function getUserName(){
-        return $this->creator->name;
-    }
-    public function getUpdatedUserName(){
-        if($this->updated_user == null){
-            return 'Категория еще не была обновлена';
-        }
-        return $this->updated_user->name;
-    }
-    public function getCreatedDate()
-    {
-        $date = Carbon::createFromFormat('Y-m-d H:i:s',$this->created_at)->diffForHumans();
-        return $date;
-    }
-    public function getUpdatedDate(){
-        $date = Carbon::createFromFormat('Y-m-d H:i:s',$this->updated_at)->diffForHumans();
-        return $date;
-    }
+
+
 
 }

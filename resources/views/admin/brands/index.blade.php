@@ -47,8 +47,7 @@
                                 <td>{{ $brand->title }}</td>
                                 <td>{!! $brand->description !!}</td>
                                 <td>{!! $brand->about !!}</td>
-                                <td>{{ $brand->getCategoryTitle()}}</td>
-
+                                <td>{{ $brand->category->title }}</td>
                                 <td>
                                     <img src="{{ $brand->getImage() }}" alt="" width="100">
                                 </td>

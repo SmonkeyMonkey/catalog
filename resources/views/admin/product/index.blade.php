@@ -46,12 +46,13 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->title }}</td>
-                                <td>{{ $product->getBrandTitle() }}</td>
-                                <td> {{ $product->getCollectionTitle() }}</td>
+                                <td>{{ $product->brand->title }}</td>
+                                <td> {{ $product->collection->title }}</td>
                                 <td>{!!   $product->specifications !!}</td>
-                                <td>{{ $product->getPrice()}}</td>
+                                <td>{{ $product->price ?? "договорная" }}</td>
                                 <td>
-                                    <img src="{{ $product->getImage() }}" alt="" width="100">
+
+                                    <img src="{{ asset('uploads/products/'.$product->image) }}" alt="" width="100">
                                 </td>
                                 <td>
                                     <a href="{{ route('product.edit', $product->id) }}" class="fa fa-pencil"></a>

@@ -21,8 +21,12 @@ class CreateBrandsTable extends Migration
             $table->text('about');
             $table->string('image')->nullable();
             $table->integer('is_published')->default(0);
-            $table->integer('category_id')->nullable();
+            $table->integer('category_id')->unsigned()->nullable();
             $table->timestamps();
+
+        });
+        Schema::table('brands',function (Blueprint $table){
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
