@@ -28,7 +28,6 @@
                             <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->updated_at)->diffForHumans() ?? ''}}
                         </div>
 
-
                 </div>
                 <div class="box-body">
                     <div class="col-md-6">

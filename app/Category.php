@@ -77,7 +77,12 @@ class Category extends Model
         $this->removeImage();
         $this->delete();
     }
-
+    public function getImage(){
+        if($this->image == null){
+            return '/img/no-img.jpg';
+        }
+        return '/uploads/categories/'.$this->image;
+    }
 
     public static function getUserID()
     {

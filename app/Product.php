@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Brand;
 use App\Collection;
+use Illuminate\Support\Str;
 
 /**
  * App\Product
@@ -52,7 +53,7 @@ class Product extends Model
     public function uploadImage($image){
         if ($image==null){return;}
         $this->removeImage();
-        $filename=str_random(10).'.'.$image->extension();
+        $filename=Str::random(10).'.'.$image->extension();
         $image->storeAs('uploads/products',$filename);
         $this->image=$filename;
         $this->save();
@@ -106,24 +107,16 @@ class Product extends Model
         }
         return $this->price;
     }
-    public function getRelatedProduct(){
-        return self::where('collection_id','=',$this->collection->id)->get();
-    }
+
+//    public function getRelatedProduct(){
+//        return self::where('collection_id','=',$this->collection->id)->get();
+//    }
     public function getQuestion(){
         return $this->question()->where('is_active',1)->get();
     }
 
     public static function getUserID(){
         return Auth::user()->getAuthIdentifier();
-    }
-    public function getUserName(){
-        return $this->creator->name;
-    }
-    public function getUpdatedUserName(){
-        if($this->updated_user == null){
-            return 'Продукт еще не был обновлен';
-        }
-            return $this->updated_user->name;
     }
     public function getCreatedDate()
     {
