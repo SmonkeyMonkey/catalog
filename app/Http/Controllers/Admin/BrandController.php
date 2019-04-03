@@ -36,6 +36,7 @@ class BrandController extends Controller
     public function create()
     {
         $categories = $this->brandRepository->getCategories();
+
         return view('admin.brands.create',compact('categories'));
     }
 
@@ -49,7 +50,7 @@ class BrandController extends Controller
     {
         $brand=Brand::create($request->all());
         $brand->uploadImage($request->file('image'));
-        $brand->toggleStatus($request->get('is_published'));
+//        $brand->toggleStatus($request->get('is_published'));
         $brand->setCategory($request->get('category_id'));
         $brand->setCollections($request->get('collections'));
         return redirect()->route('brand.index')->with('create','Бренд успешно добавлен');
@@ -76,11 +77,11 @@ class BrandController extends Controller
      */
     public function update(BrandRequest $request, $id)
     {
-        $brand=Brand::findOrFail($id);
+        $brand=Brand::find($id);
         $brand->update($request->all());
         $brand->uploadImage($request->file('image'));
         $brand->setCategory($request->get('category_id'));
-        $brand->toggleStatus($request->get('is_published'));
+//        $brand->toggleStatus($request->get('is_published'));
         return redirect()->route('brand.index')->with('update','Производитель успешно обновлен');
     }
 

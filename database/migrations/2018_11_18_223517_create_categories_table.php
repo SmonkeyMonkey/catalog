@@ -24,8 +24,8 @@ class CreateCategoriesTable extends Migration
             $table->unsignedInteger('updated_by')->nullable();
         });
         Schema::table('categories',function (Blueprint $table){
-            $table->foreign('created_by')->references('id')->on('users');
-            $table->foreign('updated_by')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('updated_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Collection;
+use App\Http\Repositories\CollectionRepository;
 use App\Http\Requests\CollectionRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,6 +12,12 @@ use App\Brand;
 
 class CollectionController extends Controller
 {
+    private $collectionRepository;
+    public function __construct()
+    {
+        $this->collectionRepository = app(CollectionRepository::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +25,7 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $collections=Collection::paginate(10);
+        $collections = $this->collectionRepository->getAllWithPaginate(10);
         return view('admin.collection.index',compact('collections'));
     }
 
@@ -29,7 +36,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        $brands=Brand::pluck('title','id');
+        $brands = $this->collectionRepository->getBrands();
         return view('admin.collection.create',compact('brands'));
     }
 
@@ -54,8 +61,9 @@ class CollectionController extends Controller
      */
     public function edit($id)
     {
-        $collection=Collection::findOrFail($id);
-        $brands=Brand::pluck('title','id');
+        $collection=$this->collectionRepository->getEdit($id);
+        $brands= $this->collectionRepository->getBrands();
+
         return view('admin.collection.edit',compact('collection','brands'));
     }
 

@@ -26,7 +26,7 @@ class CreateBrandsTable extends Migration
 
         });
         Schema::table('brands',function (Blueprint $table){
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

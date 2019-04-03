@@ -75,7 +75,7 @@ class Brand extends Model
         $this->delete();
     }
 
-    public function getImage()
+    public function getImage() // нужно пофиксить во вью.лишний метод
     {
         if ($this->image == null) {
             return '/img/no-img.jpg';
@@ -83,25 +83,25 @@ class Brand extends Model
         return '/uploads/brands/' . $this->image;
     }
 
-    public function setDraft()
-    {
-        $this->is_published = 0;
-        $this->save();
-    }
-
-    public function setPublic()
-    {
-        $this->is_published = 1;
-        $this->save();
-    }
-
-    public function toggleStatus($value)
-    {
-        if ($value == null) {
-            return $this->setDraft();
-        }
-        return $this->setPublic();
-    }
+//    public function setDraft()
+//    {
+//        $this->is_published = 0;
+//        $this->save();
+//    }
+//
+//    public function setPublic()
+//    {
+//        $this->is_published = 1;
+//        $this->save();
+//    }
+//
+//    public function toggleStatus($value)
+//    {
+//        if ($value == null) {
+//            return $this->setDraft();
+//        }
+//        return $this->setPublic();
+//    }
 
     public function setCategory($id)
     {
@@ -112,7 +112,7 @@ class Brand extends Model
         $this->save();
     }
 
-    public function getCategoryID()
+    public function getCategoryID() // не исп в адм части
     {
         if ($this->category != null) {
             return $this->category->id;

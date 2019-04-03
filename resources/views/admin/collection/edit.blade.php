@@ -25,10 +25,11 @@
                         </div>
                         <div class="form-group">
                             <label>Производитель</label>
-                            {{ Form::select('brand_id',
-                         $brands,
-                           $collection->getBrandID(),
-                           ['class' => 'form-control select2']) }}
+                            <select name="brand_id" id="brand_id" class="form-control select2" required>
+                                @foreach ($brands as $item)
+                                    <option value="{{ $item->id }}" @if($collection->brand_id == $item->id) selected @endif >{{ $item->id_title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-12">

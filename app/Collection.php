@@ -39,13 +39,13 @@ class Collection extends Model
         $this->brand_id=$id;
         $this->save();
     }
-    public function getBrandTitle(){
+    public function getBrandTitle(){ //не исп в адм част
         if($this->brands == null){
             return 'Производитель временно отсутствует';
         }
         return $this->brands->title;
     }
-    public function getBrandID(){
+    public function getBrandID(){ // не исп в адм част
         if($this->brands != null){
             return $this->brands->id;
         }

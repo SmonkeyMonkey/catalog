@@ -31,10 +31,10 @@ class CreateProductsTable extends Migration
 
         });
         Schema::table('products',function (Blueprint $table){
-            $table->foreign('brand_id')->references('id')->on('brands');
-            $table->foreign('collection_id')->references('id')->on('collections');
-            $table->foreign('created_by')->references('id')->on('users');
-            $table->foreign('updated_by')->references('id')->on('users');
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('updated_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

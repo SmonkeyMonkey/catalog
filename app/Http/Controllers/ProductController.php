@@ -20,7 +20,7 @@ class ProductController extends Controller
         $collection=Collection::where('slug',$collection)->firstOrFail();
         $product=Product::where('slug',$product)->firstOrFail();
         $test = $this->productRepository->getRelatedProduct();
-        dd($test);
+//        dd($test);
         return view('pages.product',compact('collection','product'));
     }
 }

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Brand;
 use App\News;
+use App\Observers\BrandOberver;
 use App\Question;
 use Illuminate\Support\ServiceProvider;
 use App\Category;
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories',Category::all());
             $view->with('news',News::latest()->take(3)->get());
         });
+        Brand::observe(BrandOberver::class);
     }
 
     /**
@@ -37,6 +39,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 }

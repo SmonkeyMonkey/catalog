@@ -22,7 +22,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('product_id');
             $table->unsignedInteger('replied_id')->nullable();
             $table->timestamps();
-            $table->foreign('replied_id')->references('id')->on('users');
+            $table->foreign('replied_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

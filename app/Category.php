@@ -75,6 +75,7 @@ class Category extends Model
     public function remove()
     {
         $this->removeImage();
+        $this->brands()->delete();
         $this->delete();
     }
     public function getImage(){

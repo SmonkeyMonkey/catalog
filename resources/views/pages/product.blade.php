@@ -24,9 +24,6 @@
 <section class="banner-bottom-w3ls-agileinfo py-5">
     <div class="container py-md-3">
         @if(session('message'))
-            {{--<div class="alert alert-success" role="alert">--}}
-                {{--{{ session('message') }}--}}
-            {{--</div>--}}
             <div class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Спасибо за Ваш вопрос!</h4>
                 <h5><p>После ответа нашего менеджера,он будет опубликован на данной странице</p></h5>
@@ -38,9 +35,7 @@
             <div class="col-lg-8 blog-sp">
                 <article class="blog-x row">
                     <div class="blog-img">
-
                             <img src="{{ $product->getImage() }}" alt="" class="img-fluid" />
-
                     </div>
                     <div class="blog_info">
                         {!! $product->specifications !!}

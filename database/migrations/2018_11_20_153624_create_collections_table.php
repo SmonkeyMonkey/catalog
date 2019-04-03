@@ -16,10 +16,13 @@ class CreateCollectionsTable extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->unique();
-            $table->integer('brand_id')->nullable();
+            $table->integer('brand_id')->unsigned()->nullable();
             $table->text('description')->nullable();
             $table->string('title');
             $table->timestamps();
+        });
+        Schema::table('collections',function (Blueprint $table){
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
     /**

@@ -47,7 +47,10 @@ class ProductRepository extends CoreRepository
     public function getEdit($id){
         return $this->startConditions()->with(['creator:id,name','updated_user:id,name'])->find($id);
     }
-    public function getRelatedProduct(){
-        return $this->startConditions()->with('')->get(); // need fixed,model product is need to small
-    }
+//    public function getRelatedProduct(){
+//
+//       $t = DB::table('products')->whereColumn('collection_id','=',$this->startConditions()->collection->id);
+//       dd($t);
+//        return ; // need fixed,model product is need to small
+//    }
 }

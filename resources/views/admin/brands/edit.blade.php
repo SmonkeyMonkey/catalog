@@ -36,7 +36,7 @@
                             <label for="title">Категория</label>
                             <select name="category_id" id="category_id" class="form-control select2" required>
                             @foreach ($categories as $item)
-                                <option value="{{ $item->id }}" @if($brand->getCategoryID() == $item->id) selected @endif >{{ $item->id_title }}</option>
+                                <option value="{{ $item->id }}" @if($brand->category_id == $item->id) selected @endif >{{ $item->id_title }}</option>
                                 @endforeach
                                 </select>
 
@@ -44,7 +44,12 @@
 
                         <div class="form-group">
                             <label>
-                                {{ Form::checkbox('is_published', 1, $brand->is_published,['class' => 'minimal']) }}
+                                <input name="is_published" type="hidden" value="0" >
+                                <input type="checkbox" name="is_published" class="form-check-input"
+                                @if($brand->is_published)
+                                    checked="checked"
+                                @endif>
+{{--                                {{ Form::checkbox('is_published', 1, $brand->is_published,['class' => 'minimal']) }}--}}
                             </label>
                             <label>
                                 Опубликовать
