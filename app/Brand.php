@@ -61,7 +61,12 @@ class Brand extends Model
         $this->image = $filename;
         $this->save();
     }
-
+    public function getImage(){
+        if($this->image != null){
+            return  'uploads/brands'.$this->image;
+        }
+        return 'img/no-img.jpg';
+    }
     public function removeImage()
     {
         if ($this->image != null) {
@@ -75,34 +80,15 @@ class Brand extends Model
         $this->delete();
     }
 
-    public function getImage() // нужно пофиксить во вью.лишний метод
+    public function toggleStatus($value)
     {
-        if ($this->image == null) {
-            return '/img/no-img.jpg';
+        if($value != null){
+            $this->is_published = 1;
+            $this->save();
         }
-        return '/uploads/brands/' . $this->image;
+        $this->is_published = 0;
+        $this->save();
     }
-
-//    public function setDraft()
-//    {
-//        $this->is_published = 0;
-//        $this->save();
-//    }
-//
-//    public function setPublic()
-//    {
-//        $this->is_published = 1;
-//        $this->save();
-//    }
-//
-//    public function toggleStatus($value)
-//    {
-//        if ($value == null) {
-//            return $this->setDraft();
-//        }
-//        return $this->setPublic();
-//    }
-
     public function setCategory($id)
     {
         if ($id == null) {

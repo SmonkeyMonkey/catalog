@@ -19,7 +19,7 @@
                     </article>
                     <div class="comment-top">
                         <h4>Производители</h4>
-                        @foreach($brands as $brand)
+                        @foreach($category->brands as $brand)
                         <div class="media mb-3">
                             <img src="{{ $brand->getImage() }}" alt="" class="img-fluid">
                             <div class="media-body">

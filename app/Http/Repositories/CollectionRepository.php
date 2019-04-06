@@ -33,7 +33,31 @@ class CollectionRepository extends CoreRepository
 
         return $result;
     }
-    public function getEdit($id){
+
+    public function getEdit($id)
+    {
         return $this->startConditions()->find($id);
+    }
+
+    public function getAllForCollectionPage($slug)
+    { // collection blade php
+        $colums = ['id', 'slug', 'title', 'description'];
+        $result = $this->startConditions()
+            ->select($colums)
+            ->where('slug', $slug)
+            ->with('products:id,slug,image,title,price,collection_id')
+            ->first();
+
+        return $result;
+    }
+
+    public function getCollectionAndRelatedProduct($slug)
+    {
+        $colums = ['id', 'slug', 'title'];
+        return $this->startConditions()
+            ->select($colums)
+            ->where('slug', $slug)
+            ->with('products:id,slug,title,price,specifications,collection_id')
+            ->first();
     }
 }

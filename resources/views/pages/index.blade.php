@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,7 +6,7 @@
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="keywords" content="" />
+    <meta name="keywords" content=""/>
     <script type="application/x-javascript">
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -38,19 +37,24 @@
             <div class="container agile-banner_nav">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-                    <h6><a class="navbar-brand" href="{{ route('index') }}">In <span class="display">Trend</span></a></h6>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <h6><a class="navbar-brand" href="{{ route('index') }}">In <span class="display">Trend</span></a>
+                    </h6>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item ">
-                                <a class="{{ request()->is('/') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('index') }} ">Главная страница</a>
+                                <a class="{{ request()->is('/') ? 'nav-link disabled' : 'nav-link' }}"
+                                   href="{{ route('index') }} ">Главная страница</a>
                                 {{--<a class="btn btn-primary disabled" href="{{ route('index') }}">Главная страница <span class="sr-only">(current)</span></a>--}}
                             </li>
                             <li class="nav-item">
-                                <a class="{{ request()->is('about') ? 'nav-link disabled' : 'nav-link' }}" href="{{ route('about') }} ">О нас</a>
+                                <a class="{{ request()->is('about') ? 'nav-link disabled' : 'nav-link' }}"
+                                   href="{{ route('about') }} ">О нас</a>
                                 {{--<a class="nav-link" href="{{ route('about') }}">О Нас</a>--}}
                             </li>
                             <li class="nav-item">
@@ -63,9 +67,9 @@
                                 </a>
                                 <ul class="dropdown-menu agile_short_dropdown">
                                     @foreach($categories as $category)
-                                    <li>
-                                        <a href="{{ route('category.brand',$category->slug) }}">{{ $category->title }}</a>
-                                    </li>
+                                        <li>
+                                            <a href="{{ route('category.brand',$category->slug) }}">{{ $category->title }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -98,7 +102,8 @@
                                 <circle id="cd-circle-1" cx="110" cy="400" r="1364"/>
                             </clipPath>
                         </defs>
-                        <image height='800px' width="1400px" clip-path="url(#cd-image-1)" xlink:href="images/1.jpg"></image>
+                        <image height='800px' width="1400px" clip-path="url(#cd-image-1)"
+                               xlink:href="images/1.jpg"></image>
                     </svg>
                 </div> <!-- .svg-wrapper -->
                 <div class="cd-radial-slider-content">
@@ -120,7 +125,8 @@
                                 <circle id="cd-circle-2" cx="1290" cy="400" r="60"/>
                             </clipPath>
                         </defs>
-                        <image height='800px' width="1400px" clip-path="url(#cd-image-2)" xlink:href="images/2.jpg"></image>
+                        <image height='800px' width="1400px" clip-path="url(#cd-image-2)"
+                               xlink:href="images/2.jpg"></image>
                     </svg>
                 </div> <!-- .svg-wrapper -->
                 <div class="cd-radial-slider-content text-center">
@@ -143,7 +149,8 @@
                                 <circle id="cd-circle-3" cx="110" cy="400" r="60"/>
                             </clipPath>
                         </defs>
-                        <image height='800px' width="1400px" clip-path="url(#cd-image-3)" xlink:href="images/3.jpg"></image>
+                        <image height='800px' width="1400px" clip-path="url(#cd-image-3)"
+                               xlink:href="images/3.jpg"></image>
                     </svg>
                 </div> <!-- .svg-wrapper -->
                 <div class="cd-radial-slider-content text-center">
@@ -165,7 +172,8 @@
                                 <circle id="cd-circle-4" cx="110" cy="400" r="60"/>
                             </clipPath>
                         </defs>
-                        <image height='800px' width="1400px" clip-path="url(#cd-image-4)" xlink:href="images/4.jpg"></image>
+                        <image height='800px' width="1400px" clip-path="url(#cd-image-4)"
+                               xlink:href="images/4.jpg"></image>
                     </svg>
                 </div> <!-- .svg-wrapper -->
                 <div class="cd-radial-slider-content text-center">
@@ -195,7 +203,8 @@
             <div class="card col-lg-3 col-md-6 border-0">
                 <div class="card-body bg-light pl-0 pr-0 pt-0">
                     <h5 class=" card-title titleleft">Dining Chairs</h5>
-                    <p class="card-text mb-3">Class aptent taciti sociosqu adis litora torquent per conubia nostra per inceptos himenaeos.</p>
+                    <p class="card-text mb-3">Class aptent taciti sociosqu adis litora torquent per conubia nostra per
+                        inceptos himenaeos.</p>
 
                 </div>
                 <img class="card-img-top" src="images/a1.jpg" alt="Card image cap">
@@ -204,7 +213,8 @@
                 <img class="card-img-top" src="images/a2.jpg " alt="Card image cap ">
                 <div class="card-body bg-light text-center">
                     <h5 class="card-title pt-3">Office Chairs</h5>
-                    <p class="card-text mb-3 ">Class aptent taciti sociosqu per conubia nostra per inceptos ad himenaeos.</p>
+                    <p class="card-text mb-3 ">Class aptent taciti sociosqu per conubia nostra per inceptos ad
+                        himenaeos.</p>
 
                 </div>
             </div>
@@ -212,14 +222,16 @@
                 <img class="card-img-top " src="images/a3.jpg " alt="Card image cap ">
                 <div class="card-body bg-light text-center">
                     <h5 class="card-title pt-3">Home Chairs</h5>
-                    <p class="card-text mb-3 ">Class aptent taciti sociosqu per conubia nostra per inceptos ad himenaeos.</p>
+                    <p class="card-text mb-3 ">Class aptent taciti sociosqu per conubia nostra per inceptos ad
+                        himenaeos.</p>
 
                 </div>
             </div>
             <div class="card col-lg-3 col-md-6 border-0 mt-lg-0 mt-5 text-right">
                 <div class="card-body bg-light pl-0 pr-0 pt-0">
                     <h5 class="card-title titleright">Architecture</h5>
-                    <p class="card-text mb-3">Class aptent taciti sociosqu adis litora torquent per conubia nostra per inceptos himenaeos.</p>
+                    <p class="card-text mb-3">Class aptent taciti sociosqu adis litora torquent per conubia nostra per
+                        inceptos himenaeos.</p>
 
                 </div>
                 <img class="card-img-top " src="images/a4.jpg " alt="Card image cap ">
@@ -271,12 +283,18 @@
         <h3 class="heading text-capitalize mb-sm-5 mb-4"> Наши поставщики </h3>
         <div class="row team-grids">
             @foreach($brands as $brand)
-            <div class="col-md-3 col-sm-6 w3_agileits-team1">
-                <img class="img-fluid" src="{{ $brand->getImage() }}" alt="">
-                <h5 class="mt-3">{{ $brand->title }}</h5>
-                <p>{!! $brand->description !!}</p>
+                <div class="col-md-3 col-sm-6 w3_agileits-team1">
+                    <img class="img-fluid" src="
+                    @if($brand->image != null)
+                    {{ asset('/uploads/brands/' . $brand->image) }}
+                     @else
+                     {{asset('img/no-img.jpg') }}
+                    @endif
+                        " alt="">
+                    <h5 class="mt-3">{{ $brand->title }}</h5>
+                    <p>{!! $brand->description !!}</p>
 
-            </div>
+                </div>
             @endforeach
         </div>
     </div>
@@ -294,18 +312,18 @@
                     <div class="flexslider">
                         <ul class="slides">
                             @foreach($questions as $question)
-                            <li>
-                                <div class="item g1">
-                                    <div class="agile-dish-caption">
-                                        <img class="lazyOwl" src="{{ asset('images/noavatar.jpg') }}" alt="" />
-                                        <h5>{{ $question->name }}</h5>
-                                        <h4>{{ $question->message }}</h4>
+                                <li>
+                                    <div class="item g1">
+                                        <div class="agile-dish-caption">
+                                            <img class="lazyOwl" src="{{ asset('images/noavatar.jpg') }}" alt=""/>
+                                            <h5>{{ $question->name }}</h5>
+                                            <h4>{{ $question->message }}</h4>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="para-w3-agile"> {!! $question->answer !!}</div>
                                     </div>
-                                    <div class="clearfix"></div>
-                                    <div class="para-w3-agile"> {!! $question->answer !!}</div>
-                                </div>
-                            </li>
-                          @endforeach
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </section>
@@ -322,13 +340,19 @@
         <h3 class="heading text-capitalize mb-sm-5 mb-4"> Последние новости </h3>
         <div class="row news-grids">
             @foreach($news as $article)
-            <div class="col-md-4 newsgrid1 text-center">
-                <img src="{{ $article->getImage() }}" alt="news image" class="img-fluid" />
-                <h4 class=" mt-4 text-uppercase">{{ $article->title }}</h4>
-                <p class="mt-4"> {!! $article->description !!}</p>
-                <a href="{{ route('article.show',$article->slug) }}">View Post</a>
-            </div>
-                @endforeach
+                <div class="col-md-4 newsgrid1 text-center">
+                    <img class="img-fluid" src="
+                    @if($brand->image != null)
+                    {{ asset('/uploads/news/' . $brand->image) }}
+                    @else
+                    {{asset('img/no-img.jpg') }}
+                    @endif
+                        " alt="">
+                    <h4 class=" mt-4 text-uppercase">{{ $article->title }}</h4>
+                    <p class="mt-4"> {!! $article->description !!}</p>
+                    <a href="{{ route('article.show',$article->slug) }}">View Post</a>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -370,7 +394,8 @@
                 </ul>
             </div>
             <div class="agileits_w3layouts-copyright mt-4 text-center">
-                <p>© 2018 Intrend. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="=_blank"> W3layouts </a></p>
+                <p>© 2018 Intrend. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="=_blank">
+                        W3layouts </a></p>
             </div>
         </div>
     </div>
@@ -387,10 +412,10 @@
 <!-- flexSlider --><!-- for testimonials -->
 
 <script type="text/javascript">
-    $(window).load(function(){
+    $(window).load(function () {
         $('.flexslider').flexslider({
             animation: "slide",
-            start: function(slider){
+            start: function (slider) {
                 $('body').removeClass('loading');
             }
         });
@@ -400,26 +425,26 @@
 
 <!-- start-smoth-scrolling -->
 <script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $(".scroll").click(function(event){
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
             event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
         });
     });
 </script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
 
-            var defaults = {
+        var defaults = {
             containerID: 'toTop', // fading element id
             containerHoverID: 'toTopHover', // fading element hover id
             scrollSpeed: 1200,
             easingType: 'linear'
-            };
+        };
 
 
-        $().UItoTop({ easingType: 'easeOutQuart' });
+        $().UItoTop({easingType: 'easeOutQuart'});
 
     });
 </script>

@@ -43,7 +43,7 @@
 
                         <div class="form-group">
                             <label>
-                                <input type="checkbox" class="minimal" name="is_published" value="0">
+                                <input type="checkbox" name="is_published" class="form-check-input">
                             </label>
                             <label>
                                 Опубликовать

@@ -18,7 +18,7 @@ class BrandRepository extends CoreRepository
         $colums = ['id', 'title', 'description', 'about', 'category_id', 'image'];
         $result = $this->startConditions()
             ->select($colums)
-            ->with('category:id,title') // lazy load. через : выбираем нужные поля,по умолчанию достается весь объект
+            ->with('category:id,title')// lazy load. через : выбираем нужные поля,по умолчанию достается весь объект
             ->paginate($paginate);
         return $result;
     }
@@ -35,8 +35,20 @@ class BrandRepository extends CoreRepository
         return $result;
 
     }
+
     public function getEdit($id)
     {
         return $this->startConditions()->find($id);
+    }
+
+    public function getBrandsForIndexPage()
+    {
+        $colums = ['id', 'title', 'description', 'image'];
+        $result = $this->startConditions()
+            ->select($colums)
+            ->take(4)
+            ->get();
+
+        return $result;
     }
 }

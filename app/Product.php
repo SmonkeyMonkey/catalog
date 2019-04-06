@@ -75,18 +75,18 @@ class Product extends Model
         }
         return '/uploads/products/'.$this->image;
     }
-    public function getBrandTitle(){
-        if($this->brand != null) {
-            return $this->brand->title;
-        }
-        return 'Производитель отсутствует';
-    }
-    public function getCollectionTitle(){
-        if($this->collection != null){
-            return $this->collection->title;
-        }
-        return 'Коллекция по каким-либо причинам отсутствует';
-    }
+//    public function getBrandTitle(){
+//        if($this->brand != null) {
+//            return $this->brand->title;
+//        }
+//        return 'Производитель отсутствует';
+//    }
+//    public function getCollectionTitle(){
+//        if($this->collection != null){
+//            return $this->collection->title;
+//        }
+//        return 'Коллекция по каким-либо причинам отсутствует';
+//    }
     public function setBrand($id){
         $this->brand_id = $id;
         $this->save();

@@ -48,9 +48,10 @@ class BrandController extends Controller
      */
     public function store(BrandRequest $request)
     {
+
         $brand=Brand::create($request->all());
         $brand->uploadImage($request->file('image'));
-//        $brand->toggleStatus($request->get('is_published'));
+        $brand->toggleStatus($request->get('is_published'));
         $brand->setCategory($request->get('category_id'));
         $brand->setCollections($request->get('collections'));
         return redirect()->route('brand.index')->with('create','Бренд успешно добавлен');
@@ -81,7 +82,7 @@ class BrandController extends Controller
         $brand->update($request->all());
         $brand->uploadImage($request->file('image'));
         $brand->setCategory($request->get('category_id'));
-//        $brand->toggleStatus($request->get('is_published'));
+        $brand->toggleStatus($request->get('is_published'));
         return redirect()->route('brand.index')->with('update','Производитель успешно обновлен');
     }
 
@@ -96,4 +97,5 @@ class BrandController extends Controller
         Brand::findOrFail($id)->remove();
         return redirect()->route('brand.index')->with('delete','Производитель успешно удален');
     }
+
 }

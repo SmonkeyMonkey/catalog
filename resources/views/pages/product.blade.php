@@ -30,7 +30,7 @@
             </div>
         @endif
         <h2 class="heading text-capitalize mb-sm-5 mb-3"> {{ $product->title }} </h2>
-        <h4 class="heading text-capitalize mb-sm-5 mb-3"> Производитель : {{ $product->getBrandTitle() }} </h4>
+        <h4 class="heading text-capitalize mb-sm-5 mb-3"> Производитель : {{ $product->brand->title }} </h4>
         <div class="row inner-sec-wthree-agileits">
             <div class="col-lg-8 blog-sp">
                 <article class="blog-x row">
@@ -46,19 +46,19 @@
                 <div class="comment-top">
                     <div class="gallery py-5">
                         <div class="container py-sm-3">
-                            @if($product->getRelatedProduct()->isNotEmpty())
-                                <h2 class="heading text-capitalize mb-sm-5 mb-3"> Все продукты коллекции {{ $product->getCollectionTitle() }} </h2>
+                            @if($collectionProduct->products->isNotEmpty())
+                                <h2 class="heading text-capitalize mb-sm-5 mb-3"> Все продукты коллекции {{ $collectionProduct->title }} </h2>
                                 <div class="row gallery-grids">
-                                    @foreach($product->getRelatedProduct() as $item)
+                                    @foreach($collectionProduct->products as $item)
                                         <div class="col-lg-3 col-md-4 col-sm-6 ggd baner-top small wow fadeInLeft animated" data-wow-delay=".4s">
-                                            <a href="{{ route('products.show',['collection'=>$collection->slug,'product'=>$item->slug])}}" class="b-link-stripe b-animate-go  swipebox">
+                                            <a href="{{ route('products.show',['collection'=>$collectionProduct->slug,'product'=>$item->slug])}}" class="b-link-stripe b-animate-go  swipebox">
                                                 <div class="gal-spin-effect vertical">
                                                     <img src="{{ $item->getImage() }}" alt=" " />
                                                     <div class="gal-text-box">
                                                         <div class="info-gal-con">
                                                             <h4>{{ $item->title }}</h4>
                                                             <span class="separator"></span>
-                                                            <p>Цена:{{ $item->getPrice() }}</p>
+                                                            <p>Цена:{{ $item->price }}</p>
                                                             <span class="separator"></span>
                                                         </div>
                                                     </div>
@@ -83,12 +83,12 @@
                     </div>
                 </div>
                 <div class="comment-top">
-                    @if($product->getQuestion()->isEmpty())
+                    @if($product->question->isEmpty())
                         <h4>Еще никто не задал вопрос по данному товару</h4>
                         @else
                     <h4>Вопрос-ответ</h4>
                     @endif
-                    @foreach($product->getQuestion() as $question)
+                    @foreach($product->question as $question)
                     <div class="media mb-3">
                         <img src="{{ asset('images/noavatar.jpg') }}" alt="" class="img-fluid">
                         <div class="media-body">

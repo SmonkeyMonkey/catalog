@@ -27,7 +27,7 @@
                             @if(!$collection->products->isEmpty())
                             <h2 class="heading text-capitalize mb-sm-5 mb-3"> Продукты </h2>
                                 <div class="row gallery-grids">
-                                @foreach($products as $product)
+                                @foreach($collection->products as $product)
                                 <div class="col-lg-3 col-md-4 col-sm-6 ggd baner-top small wow fadeInLeft animated" data-wow-delay=".4s">
                                     <a href="{{ route('products.show',['collection'=>$collection->slug,'product'=>$product->slug])}}" class="b-link-stripe b-animate-go  swipebox">
                                         <div class="gal-spin-effect vertical">
