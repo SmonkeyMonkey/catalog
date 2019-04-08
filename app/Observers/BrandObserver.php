@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class BrandObserver
 {
+
     /**
      * Handle the brand "created" event.
      *
@@ -23,7 +24,7 @@ class BrandObserver
 
     public function creating(Brand $brand)
     {
-
+//        $this->setCategory($brand);
     }
 
     /**
@@ -75,5 +76,12 @@ class BrandObserver
         //
     }
 
+    public function setCategory(Brand $brand){
+        if ($brand->isDirty('category_id')) {
+            $brand->category_id = request('category_id');
+            $brand->save();
+        };
+        return false;
+    }
 
 }

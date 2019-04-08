@@ -51,4 +51,5 @@ class BrandRepository extends CoreRepository
 
         return $result;
     }
+
 }

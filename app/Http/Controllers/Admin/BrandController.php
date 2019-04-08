@@ -51,8 +51,8 @@ class BrandController extends Controller
 
         $brand=Brand::create($request->all());
         $brand->uploadImage($request->file('image'));
-        $brand->toggleStatus($request->get('is_published'));
-        $brand->setCategory($request->get('category_id'));
+//        $brand->toggleStatus($request->get('is_published'));
+//        $brand->setCategory($request->get('category_id'));
         $brand->setCollections($request->get('collections'));
         return redirect()->route('brand.index')->with('create','Бренд успешно добавлен');
     }

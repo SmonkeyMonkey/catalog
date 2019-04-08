@@ -24,8 +24,16 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:2',
-            'image' => 'nullable|image'
+            'title'              => 'required|min:2',
+            'image'              => 'nullable|image'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'title.required'    => 'Поле "Название" обязательно к заполнению',
+            'title.min'         => 'Минимальное кол-во символов поля "Название" : [:min]',
+            'image.image'       => 'Похоже что загруженный Вами файл не является картинкой'
         ];
     }
 }

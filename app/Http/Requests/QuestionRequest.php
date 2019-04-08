@@ -24,7 +24,14 @@ class QuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'answer' => 'required|min:3'
+            'answer'           => 'required|min:3'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'answer.required'   => 'Похоже что вы забыли указать свой вопрос',
+            'answer.min'        => 'Минимальное кол-во символов: [:min]'
         ];
     }
 }

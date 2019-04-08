@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Brand;
-use App\News;
 use App\Observers\BrandObserver;
 use App\Question;
 use Illuminate\Support\ServiceProvider;
