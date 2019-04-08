@@ -24,7 +24,7 @@ class QuestionController extends Controller
 
     public function index()
     {
-        $questions=Question::paginate(10);
+        $questions=$this->questionRepository->getQuestionWithPaginate(10);
         return view('admin.questions.index',compact('questions'));
     }
 
@@ -36,7 +36,7 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-//        $question=Question::findOrFail($id);
+
         $question = $this->questionRepository->getEdit($id);
         $userID = Question::getRepliedID();
         return view('admin.questions.edit',compact('question','userID'));

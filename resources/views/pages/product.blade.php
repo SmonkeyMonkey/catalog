@@ -105,7 +105,7 @@
             <aside class="col-lg-4 single-left">
                 <div class="single-gd">
                     <h3>Идентификатор(ID) продукта : {{ $product->id }}</h3>
-                    <h4>Стоимость : {{ $product->getPrice() }}</h4>
+                    <h4>Стоимость : {{ $product->price }}</h4>
                 </div>
             </aside>
 

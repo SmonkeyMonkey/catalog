@@ -26,6 +26,7 @@ class CollectionController extends Controller
     public function index()
     {
         $collections = $this->collectionRepository->getAllWithPaginate(10);
+
         return view('admin.collection.index',compact('collections'));
     }
 

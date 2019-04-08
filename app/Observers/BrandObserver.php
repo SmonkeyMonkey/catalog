@@ -24,7 +24,6 @@ class BrandObserver
 
     public function creating(Brand $brand)
     {
-//        $this->setCategory($brand);
     }
 
     /**
@@ -74,14 +73,6 @@ class BrandObserver
     public function forceDeleted(Brand $brand)
     {
         //
-    }
-
-    public function setCategory(Brand $brand){
-        if ($brand->isDirty('category_id')) {
-            $brand->category_id = request('category_id');
-            $brand->save();
-        };
-        return false;
     }
 
 }

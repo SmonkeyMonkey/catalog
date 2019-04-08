@@ -52,8 +52,11 @@ class ProductRepository extends CoreRepository
         $result = $this->startConditions()->
         select($colums)->
         where('slug',$slug)->
-        with(['brand:id,title','question:id,product_id,message,answer,is_active'])->
+        with(['brand:id,title','question' => function($query){
+            $query->select('name','message','answer','product_id')->where('is_active','1');
+        }])->
         first();
         return $result;
     }
+
 }

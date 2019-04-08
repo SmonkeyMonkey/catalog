@@ -75,18 +75,7 @@ class Product extends Model
         }
         return '/uploads/products/'.$this->image;
     }
-//    public function getBrandTitle(){
-//        if($this->brand != null) {
-//            return $this->brand->title;
-//        }
-//        return 'Производитель отсутствует';
-//    }
-//    public function getCollectionTitle(){
-//        if($this->collection != null){
-//            return $this->collection->title;
-//        }
-//        return 'Коллекция по каким-либо причинам отсутствует';
-//    }
+
     public function setBrand($id){
         $this->brand_id = $id;
         $this->save();
@@ -100,19 +89,6 @@ class Product extends Model
     }
     public function getCollectionID(){
         return $this->collection_id;
-    }
-    public function getPrice(){
-        if($this->price == null){
-            return 'Договорная';
-        }
-        return $this->price;
-    }
-
-//    public function getRelatedProduct(){
-//        return self::where('collection_id','=',$this->collection->id)->get();
-//    }
-    public function getQuestion(){
-        return $this->question()->where('is_active',1)->get();
     }
 
     public static function getUserID(){

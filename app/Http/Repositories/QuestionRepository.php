@@ -17,7 +17,11 @@ class QuestionRepository extends CoreRepository
     {
         return $this->startConditions()->find($id);
     }
-
+    public function getQuestionWithPaginate($paginate = null){
+        $colums = ['id','name','message','answer',];
+        $result = $this->startConditions()->select($colums)->paginate($paginate);
+        return $result;
+    }
     public function getQuestionsForIndexPage()
     {
         $colums = ['id', 'name', 'message', 'answer', 'is_active', 'replied_id'];
@@ -31,4 +35,5 @@ class QuestionRepository extends CoreRepository
 
         return $result;
     }
+
 }

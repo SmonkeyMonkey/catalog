@@ -80,7 +80,7 @@ class Brand extends Model
         $this->delete();
     }
 
-    public function toggleStatus($value)
+    public function setStatus($value)
     {
         if($value != null){
             $this->is_published = 1;
