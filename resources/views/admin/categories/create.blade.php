@@ -48,7 +48,7 @@
                 <div class="box-footer">
                     <button class="btn btn-success pull-right">Добавить</button>
                 </div>
-                {{ Form::hidden('created_by',$userID) }}
+{{--                {{ Form::hidden('created_by',$userID) }}--}}
                 <!-- /.box-footer-->
                 {!! Form::close() !!}
             </div>

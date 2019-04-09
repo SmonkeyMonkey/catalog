@@ -35,8 +35,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $userID = Category::getUserID();
-        return view('admin.categories.create',compact('userID'));
+        return view('admin.categories.create');
     }
 
     /**
@@ -62,7 +61,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = $this->categoryRepository->getEdit($id);
-        $userID = Category::getUserID();
         return view('admin.categories.edit', compact('category','userID'));
     }
 

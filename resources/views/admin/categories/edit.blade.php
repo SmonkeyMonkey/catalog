@@ -19,7 +19,7 @@
                         <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $category->created_at)->diffForHumans() }}
                         </div>
                     <div class="col-6 col-md-4">
-                        <label for="name">Updated by:</label>{{ $category->updated_user->name }}<br>
+                        <label for="name">Updated by:</label>{{ $category->updated_user->name ?? '' }}<br>
                         <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $category->updated_at)->diffForHumans() ?? '' }}
                     </div>
 
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                    {{ Form::hidden('updated_by',$userID) }}
+
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <button class="btn btn-default">Назад</button>

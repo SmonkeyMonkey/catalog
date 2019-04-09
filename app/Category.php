@@ -67,11 +67,6 @@ class Category extends Model
         }
     }
 
-    public function created_by($id)
-    {
-        $this->created_by = $id;
-    }
-
     public function remove()
     {
         $this->removeImage();
@@ -84,12 +79,4 @@ class Category extends Model
         }
         return '/uploads/categories/'.$this->image;
     }
-
-    public static function getUserID()
-    {
-        return Auth::user()->getAuthIdentifier();
-    }
-
-
-
 }

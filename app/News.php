@@ -8,8 +8,9 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class News extends Model
 {
-    protected $fillable = ['title','description','text'];
+    protected $fillable = ['title', 'description', 'text'];
     use Sluggable;
+
     public function sluggable()
     {
         return [
@@ -19,29 +20,35 @@ class News extends Model
             ]
         ];
     }
-    public function uploadImage($image){
-        if ($image==null){return;}
+
+    public function uploadImage($image)
+    {
         $this->removeImage();
-        $filename=str_random(10).'.'.$image->extension();
-        $image->storeAs('uploads/news',$filename);
-        $this->image=$filename;
+        $filename = str_random(10) . '.' . $image->extension();
+        $image->storeAs('uploads/news', $filename);
+        $this->image = $filename;
         $this->save();
     }
-    public function removeImage(){
-        if($this->image != null)
-        {
-            Storage::delete('uploads/news/' . $this->image);
+
+
+    public function getImage()
+    {
+        if ($this->image == null) {
+            return '/uploads/news/no-image.png';
         }
+        return '/uploads/news/' . $this->image;
     }
+
     public function remove()
     {
         $this->removeImage();
         $this->delete();
     }
-    public function getImage(){
-        if($this->image == null){
-            return '/uploads/news/no-image.png';
+
+    public function removeImage()
+    {
+        if ($this->image != null) {
+            Storage::delete('uploads/news/' . $this->image);
         }
-        return '/uploads/news/'.$this->image;
     }
 }

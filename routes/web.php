@@ -37,4 +37,4 @@ Route::get('/login','Admin\LoginController@loginForm')->middleware('guest')->nam
 Route::post('/login','Admin\LoginController@login')->middleware('guest')->name('login');
 
 
-Route::get('/logout','Admin\LoginController@logout')->middleware('auth');
+Route::get('/logout','Admin\LoginController@logout')->middleware('auth')->name('logout');

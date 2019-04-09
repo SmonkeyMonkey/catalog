@@ -52,9 +52,6 @@ class Brand extends Model
 
     public function uploadImage($image)
     {
-        if ($image == null) {
-            return;
-        }
         $this->removeImage();
         $filename = str_random(10) . '.' . $image->extension();
         $image->storeAs('uploads/brands', $filename);
@@ -98,13 +95,6 @@ class Brand extends Model
         $this->save();
     }
 
-    public function getCategoryID() // не исп в адм части
-    {
-        if ($this->category != null) {
-            return $this->category->id;
-        }
-        return null;
-    }
 
     public function setCollections($ids)
     {

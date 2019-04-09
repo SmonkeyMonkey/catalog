@@ -40,7 +40,9 @@ class NewsController extends Controller
     {
 
         $news=News::create($request->all());
-        $news->uploadImage($request->file('image'));
+        if($request->file('image') != null) {
+            $news->uploadImage($request->file('image'));
+        }
         return redirect()->route('news.index')->with('create','Ваша новость успешно добавлена');
     }
 

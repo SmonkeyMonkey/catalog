@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Brand;
 use App\Observers\BrandObserver;
+use App\Observers\CategoryObserver;
 use App\Question;
 use Illuminate\Support\ServiceProvider;
 use App\Category;
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Brand::observe(BrandObserver::class);
+        Category::observe(CategoryObserver::class);
     }
 
     /**
