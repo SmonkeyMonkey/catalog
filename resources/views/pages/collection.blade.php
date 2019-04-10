@@ -36,7 +36,7 @@
                                                 <div class="info-gal-con">
                                                     <h4>{{ $product->title }}</h4>
                                                     <span class="separator"></span>
-                                                    <p>Стоимость:{{ $product->getPrice() }}</p>
+                                                    <p>Стоимость:{{ $product->price }}</p>
                                                     <span class="separator"></span>
                                                 </div>
                                             </div>

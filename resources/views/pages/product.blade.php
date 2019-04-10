@@ -75,9 +75,10 @@
                     <h4>Хотите задать вопрос по данному продукту ?</h4>
                     <div class="comment-bottom">
                         {{ Form::open(['route' => 'question.add', 'method' => 'post']) }}
-                            <input class="form-control" type="text" name="name" placeholder="Как Вас зовут ?" >
+                            <input class="form-control" type="text" name="name" placeholder="Как Вас зовут ?" value="{{ old('name') }}">
                            <input type="hidden" name="product_id" value="{{$product->id}}">
                             <textarea name="message" placeholder="Ваш вопрос" >{{ old('message') }}</textarea>
+                        {!! app('captcha')->display() !!}
                         <input type="submit" class="form-control" value="Отправить">
                         {{ Form::close() }}
                     </div>
