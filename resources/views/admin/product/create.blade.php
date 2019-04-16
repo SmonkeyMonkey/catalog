@@ -78,7 +78,6 @@
                     <button class="btn btn-success pull-right">Добавить</button>
                 </div>
                 <!-- /.box-footer-->
-                {{ Form::hidden('created_by',$userID) }}
             </div>
             <!-- /.box -->
             {{ Form::close() }}

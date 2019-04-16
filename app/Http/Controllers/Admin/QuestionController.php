@@ -38,8 +38,8 @@ class QuestionController extends Controller
     {
 
         $question = $this->questionRepository->getEdit($id);
-        $userID = Question::getRepliedID();
-        return view('admin.questions.edit',compact('question','userID'));
+
+        return view('admin.questions.edit',compact('question'));
     }
 
     /**
@@ -53,7 +53,6 @@ class QuestionController extends Controller
     {
         $question=Question::findOrFail($id);
         $question->update($request->all());
-        $question->setActive();
         return redirect()->route('question.index')->with('update','Ответ успешно добавлен/изменен');
     }
 

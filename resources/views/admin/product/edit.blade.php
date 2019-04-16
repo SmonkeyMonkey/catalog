@@ -20,12 +20,13 @@
                     <div class="col-12 col-md-8">
                         @include('admin.errors')
                         <label for="name">Created by:</label>{{ $product->creator->name }}<br>
-                        <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->created_at)->diffForHumans() }}
+
+                        <label for="date">Date:</label>{{ $product->getCreatedDate() }}
                         </div>
 
                         <div class="col-6 col-md-4">
                             <label for="name">Updated by:</label>{{ $product->updated_user->name ?? ''}}<br>
-                            <label for="date">Date:</label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $product->updated_at)->diffForHumans() ?? ''}}
+                            <label for="date">Date:</label>{{ $product->getUpdatedDate() }}
                         </div>
 
                 </div>
@@ -67,17 +68,21 @@
                         </div>
                         <div class="form-group">
                             <label>Производитель</label>
-                            {{ Form::select('brand_id',
-                            $brands,
-                              $product->getBrandID(),
-                              ['class' => 'form-control select2']) }}
+                            <select name="brand_id" id="brand_id" class="form-control select2" required>
+                                @foreach ($brands as $item)
+                                    <option value="{{ $item->id }}" @if($product->brand_id == $item->id) selected @endif >{{ $item->id_title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Коллекция</label>
-                            {{ Form::select('collection_id',
-                            $collections,
-                              $product->getCollectionID(),
-                              ['class' => 'form-control select2']) }}
+                            <select name="collection_id" id="collection_id" class="form-control select2" required>
+
+                                @foreach ($collections as $item)
+                                    <option value="{{ $item->id }}" @if($product->collection_id == $item->id) selected @endif >{{ $item->id_title }}</option>
+                                @endforeach
+                            </select>
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -92,7 +97,7 @@
                     <button class="btn btn-success pull-right">Редактировать</button>
                 </div>
                 <!-- /.box-footer-->
-                {{ Form::hidden('updated_by',$userID) }}
+
             </div>
 
             <!-- /.box -->

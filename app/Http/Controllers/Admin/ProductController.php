@@ -38,8 +38,7 @@ class ProductController extends Controller
     {
         $brands= $this->productRepository->getBrands();
         $collections= $this->productRepository->getCollections();
-        $userID = Product::getUserID();
-        return view('admin.product.create',compact('brands','collections','userID'));
+        return view('admin.product.create',compact('brands','collections'));
     }
 
     /**
@@ -66,10 +65,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product=Product::findOrFail($id);
-        $brands=Brand::pluck('title','id')->all();
-        $userID= Product::getUserID();
-        $collections=Collection::pluck('title','id')->all();
+        $product=$this->productRepository->getEdit($id);
+
+        $brands= $this->productRepository->getBrands();
+        $collections= $this->productRepository->getCollections();
+
         return view('admin.product.edit',compact('product','brands','collections','userID'));
     }
 

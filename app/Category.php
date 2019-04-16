@@ -2,11 +2,8 @@
 
 namespace App;
 
-use Carbon\Carbon;
-use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 /**
  * App\Category
@@ -18,20 +15,11 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Category query()
  * @mixin \Eloquent
  */
-class Category extends Model
+class Category extends BasicModel
 {
-    use Sluggable;
     protected $fillable = ['title', 'description', 'created_by', 'updated_by'];
 
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-                'onUpdate' => true
-            ]
-        ];
-    }
+
 
     public function brands()
     {
@@ -54,7 +42,7 @@ class Category extends Model
             return;
         }
         $this->removeImage();
-        $filename = str_random(10) . '.' . $image->extension();
+        $filename = Str::random(10) . '.' . $image->extension();
         $image->storeAs('uploads/categories', $filename);
         $this->image = $filename;
         $this->save();

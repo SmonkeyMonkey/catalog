@@ -2,29 +2,19 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Str;
 
-class News extends Model
+
+class News extends BasicModel
 {
     protected $fillable = ['title', 'description', 'text'];
-    use Sluggable;
 
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-                'onUpdate' => true
-            ]
-        ];
-    }
 
     public function uploadImage($image)
     {
         $this->removeImage();
-        $filename = str_random(10) . '.' . $image->extension();
+        $filename = Str::random(10) . '.' . $image->extension();
         $image->storeAs('uploads/news', $filename);
         $this->image = $filename;
         $this->save();

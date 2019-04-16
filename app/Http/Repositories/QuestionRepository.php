@@ -15,10 +15,10 @@ class QuestionRepository extends CoreRepository
 
     public function getEdit($id)
     {
-        return $this->startConditions()->find($id);
+        return $this->startConditions()->with('replied:id,name')->find($id);
     }
     public function getQuestionWithPaginate($paginate = null){
-        $colums = ['id','name','message','answer',];
+        $colums = ['id','name','message','answer'];
         $result = $this->startConditions()->select($colums)->paginate($paginate);
         return $result;
     }

@@ -44,7 +44,7 @@
                                 <td>{{ $collection->id }}</td>
                                 <td>{{ $collection->title }}</td>
                                 <td>{{ $collection->brands->title }}</td>
-                                <td>{{ $collection->description }}</td>
+                                <td>{!! $collection->description !!}</td>
                                 <td>
                                     <a href="{{ route('collection.edit', $collection->id) }}" class="fa fa-pencil"></a>
 

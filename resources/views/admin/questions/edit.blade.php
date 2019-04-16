@@ -11,7 +11,7 @@
             <div class="box">
                 <div class="box-header with-border">
                     @include('admin.errors')
-                    <label for="name">Ответил(а):</label>{{ $question->getUserName() ?? 'Ав' }}<br>
+                    <label for="name">Ответил(а):</label>{{ $question->replied->name ?? '' }}<br>
                     <label for="date">Дата ответа:</label>{{ $question->getRepliedDate() ?? 'Вопрос пока не получил ответ' }}
                 </div>
                 </div>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
 
-                {{ Form::hidden('replied_id',$userID) }}
+{{--                {{ Form::hidden('replied_id',$userID) }}--}}
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

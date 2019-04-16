@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+//use App\BasicModel;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Sluggable;
 use App\Product;
+use Illuminate\Support\Str;
 
 /**
  * App\Brand
@@ -19,19 +19,8 @@ use App\Product;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Brand query()
  * @mixin \Eloquent
  */
-class Brand extends Model
+class Brand extends BasicModel
 {
-    use Sluggable;
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-                'onUpdate' => true
-            ]
-        ];
-    }
 
     public function product()
     {
@@ -53,7 +42,7 @@ class Brand extends Model
     public function uploadImage($image)
     {
         $this->removeImage();
-        $filename = str_random(10) . '.' . $image->extension();
+        $filename = Str::random(10) . '.' . $image->extension();
         $image->storeAs('uploads/brands', $filename);
         $this->image = $filename;
         $this->save();

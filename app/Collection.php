@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Collection
@@ -16,18 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Collection query()
  * @mixin \Eloquent
  */
-class Collection extends Model
+class Collection extends BasicModel
 {
-    use Sluggable;
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title',
-                'onUpdate' => true
-            ]
-        ];
-    }
+
     protected $fillable=['title','description'];
     public function brands(){
         return $this->belongsTo(Brand::class,'brand_id');
